@@ -12,7 +12,6 @@ description: My systems are designed as a sum of independent services to ensure 
 ---
 
 ![Card for Cloud Native Architecture.](/cards/cloud-native-architecture.png)
-![My systems are designed as a sum of independent services to ensure scalability, operability and agility.](/images/cloud-native-architecture.webp)
 
 # Description
 

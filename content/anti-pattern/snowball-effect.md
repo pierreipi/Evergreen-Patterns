@@ -12,7 +12,6 @@ description: "Simple problems in my systems grow bigger over time and generate u
 ---
 
 ![Card for Snowball Effect.](/cards/snowball-effect.png)
-![Simple problems in my systems grow bigger over time and generate unmanageable situations.](/images/snowball-effect.webp)
 
 # Description
 

@@ -1,0 +1,40 @@
+baseURL = 'http://localhost:1313/'
+locale = 'en-us'
+title = 'Evergreen Patterns (2022)'
+theme = 'ananke'
+contentDir = 'old-content'
+publishDir = 'public-2022'
+
+[params]
+  description = 'Operability patterns and anti-patterns to improve the quality of service of IT systems.'
+  mainSections = ['architecting', 'building', 'releasing', 'running']
+  show_reading_time = false
+  recent_posts_number = 6
+
+[[menus.main]]
+  name = 'Architecting'
+  pageRef = '/architecting'
+  weight = 10
+[[menus.main]]
+  name = 'Building'
+  pageRef = '/building'
+  weight = 20
+[[menus.main]]
+  name = 'Releasing'
+  pageRef = '/releasing'
+  weight = 30
+[[menus.main]]
+  name = 'Running'
+  pageRef = '/running'
+  weight = 40
+[[menus.main]]
+  name = 'Anti-patterns'
+  pageRef = '/anti-patterns'
+  weight = 50
+[[menus.main]]
+  name = 'Tags'
+  pageRef = '/tags'
+  weight = 60
+
+[markup.goldmark.renderer]
+  unsafe = true

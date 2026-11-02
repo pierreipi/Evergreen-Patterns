@@ -14,7 +14,6 @@ tags:
 description: "My systems can be deployed in small increments and enable easy upgrade or roll-back."
 ---
 
-![My systems can be deployed in small increments and enable easy upgrade or roll-back.](/images/progressive-roll-out.webp)
 
 # Description
 

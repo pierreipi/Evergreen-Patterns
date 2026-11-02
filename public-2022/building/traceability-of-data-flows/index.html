@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Traceability Of Data Flows | Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="My systems&#39; dataflows are easy to monitor and diagnose thanks to correlation (UUIDs...)">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/building/traceability-of-data-flows/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/building/traceability-of-data-flows/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Traceability Of Data Flows">
+	<meta property="og:description" content="My systems&#39; dataflows are easy to monitor and diagnose thanks to correlation (UUIDs...)">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="building">
+		<meta property="article:published_time" content="2022-04-12T15:54:49+02:00">
+		<meta property="article:modified_time" content="2022-04-12T15:54:49+02:00">
+		<meta property="article:tag" content="Building">
+
+	<meta itemprop="name" content="Traceability Of Data Flows">
+	<meta itemprop="description" content="My systems&#39; dataflows are easy to monitor and diagnose thanks to correlation (UUIDs...)">
+	<meta itemprop="datePublished" content="2022-04-12T15:54:49+02:00">
+	<meta itemprop="dateModified" content="2022-04-12T15:54:49+02:00">
+	<meta itemprop="wordCount" content="230">
+	<meta itemprop="keywords" content="Building">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Traceability Of Data Flows">
+	<meta name="twitter:description" content="My systems&#39; dataflows are easy to monitor and diagnose thanks to correlation (UUIDs...)">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-traceability-of-data-flows">
+   
+  
+
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+
+  <article class="page-traceability-of-data-flows flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    <a class="link dim" href="http://localhost:1313/building/">Building Systems</a>
+  </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Traceability Of Data Flows</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-04-12T15:54:49+02:00">April 12, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="main-purpose">MAIN PURPOSE</h1>
+<p>Applications of our information systems exchange data, all the time. Referential data is pushed from data referential to transactional applications. Transactional data are exchanged between these applications and pushed to BI systems for analytics requirements.</p>
+<p>Our business relies more and more on this data to be always available and as quickly as possible to make the best decisions. Our customers also expect data to be communicated to them in a timely and consistent fashion.</p>
+<p>Being able to understand these data flows is a mandatory requirement and implementing end to end traceability of the data is a must have to understand the problems that will rise during these exchanges.</p>
+<h1 id="how-it-works">HOW IT WORKS</h1>
+<p>Lineage of the data needs to be described somewhere, ideally all data flows of the information systems should be described in a central and shared repository and data owners should be clearly identified.</p>
+<p>When transmitting data across system, include all the data that would help diagnose issues in case of problems. For example, include all identifiers that can help teams to quickly identify which data was successful transferred or not.</p>
+<p>Logging all data transfers events is also mandatory, minimum required information are:</p>
+<ul>
+<li>
+<p>start of transfer date</p>
+</li>
+<li>
+<p>source and destination (ip addresses, application names, …)</p>
+</li>
+<li>
+<p>size in bytes</p>
+</li>
+<li>
+<p>end of transfer date</p>
+</li>
+<li>
+<p>status</p>
+</li>
+</ul>
+<h1 id="examples">EXAMPLES</h1>
+<p>Please refer to the pattern “Reliable Data Exchanges” for more implementation details and examples.</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/categories/building/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Building</a>
+   </li>
+  
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/building/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Building</a>
+   </li>
+  
+</ul>
+
+      
+    </div><aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/building/continuous-integration/">Continuous Integration</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/building/error-categorization/">Error Categorization</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/building/production-aware-testing/">Production Aware Testing</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/building/reporting-system-health-state/">Reporting System Health State</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/building/chaos-engineering/">Chaos Engineering</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/building/application-logging/">Application Logging</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/building/accounting-for-internal-failures/">Accounting for Internal Failures</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/building/accounting-for-third-party-failures/">Accounting for Third Party Failures</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,7 +29,7 @@ Sample problems and questions you need to answer:
 - Does it make sense to use a longer timeout between **Relevance** & **Promotions** than between **Recommendation** and **Relevance** ?
 - How can we propagate the information of a client timeout across the chain to avoid unnecessary work ?
 
-![Tux, the Linux mascot](static/images/architecting/UsingTimeouts-examples.png)
+![Tux, the Linux mascot](/images/architecting/UsingTimeouts-examples.png)
 
 # Off the shelf implementations
 
@@ -58,5 +58,5 @@ Even if Golang is not a standard development technology we use at Michelin, the 
 - When you consume an external API, make sure you use the values recommended by the provider of the API
 
 
-![Tux, the Linux mascot](static/images/architecting/UsingTimeouts-bestpractices.png)
+![Tux, the Linux mascot](/images/architecting/UsingTimeouts-bestpractices.png)
 

@@ -29,7 +29,7 @@ Every time the software consumes resources that are associated with these condit
 - When a purge of data is required after 3 years of production people will not remember to do it, and if they do it might be unclear on how to do it
   - The system will be slower and slower
 
-![SteadyState-works](static/images/architecting/SteadyState-works.png)
+![SteadyState-works](/images/architecting/SteadyState-works.png)
 
 # Examples
 
@@ -45,4 +45,4 @@ Every time the software consumes resources that are associated with these condit
 **I cache processing results in memory**
 👍 <em>Steady State</em>: I have a cache invalidation strategy
 
-![SteadyState-examples](static/images/architecting/SteadyState-examples.png)
+![SteadyState-examples](/images/architecting/SteadyState-examples.png)

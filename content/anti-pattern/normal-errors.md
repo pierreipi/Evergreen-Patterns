@@ -12,7 +12,6 @@ description: "My systems are reporting too many errors which are either not rele
 ---
 
 ![Card for Normal Errors.](/cards/normal-errors.png)
-![My systems are reporting too many errors which are either not relevant or not associated with an actual problem.](/images/normal-errors.webp)
 
 # Description
 

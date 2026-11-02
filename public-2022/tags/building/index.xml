@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Building on Evergreen Patterns (2022)</title>
+		<link>http://localhost:1313/tags/building/</link>
+		<description>Recent content in Building on Evergreen Patterns (2022)</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 12 Apr 2022 15:54:49 +0200</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/building/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Continuous Integration</title>
+				<link>http://localhost:1313/building/continuous-integration/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:49 +0200</pubDate>
+				<guid>http://localhost:1313/building/continuous-integration/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Continuous Integration (CI) is a software development practice, where automated builds can be triggered by some sort of event, such as a code check-in or merge.&#xA;It is part of the Continuous Integration/Continuous Deployment pipeline practice.&lt;/p&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;When you see continuous in a pattern name, one of the idea behind it is that by doing an action continuously, therefore by small steps, you will be able to automate it and it will make life dramatically easier.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Error Categorization</title>
+				<link>http://localhost:1313/building/error-categorization/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:49 +0200</pubDate>
+				<guid>http://localhost:1313/building/error-categorization/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Error categorization is the mandatory first enabler for Application logging and then monitoring&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/building/error_categorization.png&#34; alt=&#34;Error Categorization&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;Define standard error severities and give them meaning.&#xA;A meaningful Error Categorization will facilitate doing good and useful application logging.&lt;/p&gt;&#xA;&lt;p&gt;It enables communication between Build and Run teams. They need to agree on standard error severities and its consequences, for example if I log an error message at a « Fatal » level, someone may be on-call and woken up in the middle of the night&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Production Aware Testing</title>
+				<link>http://localhost:1313/building/production-aware-testing/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:49 +0200</pubDate>
+				<guid>http://localhost:1313/building/production-aware-testing/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Before the production deployment we need the possibility to conduct tests on an environment that closely mimicks our real-world production.&#xA;The goal is to test codes, builds, and updates to ensure quality under a production-like environment.&lt;/p&gt;&#xA;&lt;p&gt;Only because of that level of sameness, we will be able to conduct test that encompass real-world user journeys&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works&#34;&gt;HOW IT WORKS?&lt;/h1&gt;&#xA;&lt;p&gt;To be able to do that, everything in the environments should be as close as possible to an exact copy of the production environment.&#xA;Software, hardware, architecture and configuration should be the same as production environments and when we say the same we mean same components but also the same versions of components, same level of patches ,etc…..&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Reporting System Health State</title>
+				<link>http://localhost:1313/building/reporting-system-health-state/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:49 +0200</pubDate>
+				<guid>http://localhost:1313/building/reporting-system-health-state/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;All critical aspects of your product are monitored in real-time to ensure that potential issues are detected as soon as possible. System health includes Disk Space, Services, Performance, Scheduled Tasks, Software/Hardware and more.&lt;/p&gt;&#xA;&lt;h1 id=&#34;what-need-to-be-done&#34;&gt;WHAT NEED TO BE DONE&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The connectivity to every dependent system is checked in the health check&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;State of all major components of the application architecture are evaluated&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;All related file systems free space is evaluated as part of the check&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Traceability Of Data Flows</title>
+				<link>http://localhost:1313/building/traceability-of-data-flows/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:49 +0200</pubDate>
+				<guid>http://localhost:1313/building/traceability-of-data-flows/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Applications of our information systems exchange data, all the time. Referential data is pushed from data referential to transactional applications. Transactional data are exchanged between these applications and pushed to BI systems for analytics requirements.&lt;/p&gt;&#xA;&lt;p&gt;Our business relies more and more on this data to be always available and as quickly as possible to make the best decisions. Our customers also expect data to be communicated to them in a timely and consistent fashion.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Chaos Engineering</title>
+				<link>http://localhost:1313/building/chaos-engineering/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:34 +0200</pubDate>
+				<guid>http://localhost:1313/building/chaos-engineering/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Chaos engineering is the process of experimenting on a system to ensure that it can withstand unexpected disruptions.&lt;br&gt;&#xA;It relies on concepts underlying chaos theory, which focus on random and unpredictable behavior.&lt;/p&gt;&#xA;&lt;p&gt;This is a modern approach to testing and validating your application architectures, it will help all teams from dev to support to have a better understanding of the product and be more confident that the application will be able to handle faults gracefully.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Application Logging</title>
+				<link>http://localhost:1313/building/application-logging/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:25 +0200</pubDate>
+				<guid>http://localhost:1313/building/application-logging/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Application logging is the process of saving application events. With this information in hand, the team can assess threats and analyze errors before they disrupt the service.&#xA;They are the most helpful and reliable evidence to conduct a proper root cause analysis of an incident.&lt;/p&gt;&#xA;&lt;p&gt;Application logs are not used just for averting operational problems, but also to provide business intelligence through data mining.&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works&#34;&gt;HOW IT WORKS?&lt;/h1&gt;&#xA;&lt;p&gt;In order help you and standardize the process of logging, you should use frameworks like for the Java platform. Several Java logging frameworks exist.  Log4J is one of them.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Accounting for Internal Failures</title>
+				<link>http://localhost:1313/building/accounting-for-internal-failures/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:14 +0200</pubDate>
+				<guid>http://localhost:1313/building/accounting-for-internal-failures/</guid>
+				<description>&lt;h1 id=&#34;definition&#34;&gt;DEFINITION&lt;/h1&gt;&#xA;&lt;p&gt;In our context we talk about internal failure as opposed to third-party failure. By internal we mean all the services, components, application that are under the responsibility of the product team.&lt;/p&gt;&#xA;&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;A common risk is to believe things will go well all the time, and therefore design and implement only the “happy path”, meaning that we think all the components will always be available, integration process will never fail, etc …&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Accounting for Third Party Failures</title>
+				<link>http://localhost:1313/building/accounting-for-third-party-failures/</link>
+				<pubDate>Tue, 12 Apr 2022 15:53:33 +0200</pubDate>
+				<guid>http://localhost:1313/building/accounting-for-third-party-failures/</guid>
+				<description>&lt;h1 id=&#34;definition&#34;&gt;DEFINITION&lt;/h1&gt;&#xA;&lt;p&gt;In our context a third-party is a product, a service or an application that is not under the responsibility of the product team.&lt;/p&gt;&#xA;&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;A common risk is to believe things will go well all the time, and therefore design and implement only the “happy path”, meaning that we think all the components will always be available, integration process will never fail, etc …&lt;/p&gt;&#xA;&lt;p&gt;We must do the exact opposite, imagine the worst cases, thinking about what can happen, go wrong and how it will be a non-event for us.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

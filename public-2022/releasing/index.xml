@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Releasing Systems on Evergreen Patterns (2022)</title>
+		<link>http://localhost:1313/releasing/</link>
+		<description>Recent content in Releasing Systems on Evergreen Patterns (2022)</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 14 Apr 2022 16:27:56 +0200</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/releasing/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Error Budget</title>
+				<link>http://localhost:1313/releasing/error-budget/</link>
+				<pubDate>Thu, 14 Apr 2022 16:27:56 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/error-budget/</guid>
+				<description>&lt;h1 id=&#34;definition&#34;&gt;Definition&lt;/h1&gt;&#xA;&lt;p&gt;Error Budgeting is an SRE practice that is very useful to help you find the proper pace and balance between developing new end user features or making your system more resilient and stable.&lt;/p&gt;&#xA;&lt;p&gt;When implementing SRE practices, you will start by identify the good service level indicators (SLIs) and associate them with objectives (SLOs) that will let you know at any time if the service you are delivering to your users is acceptable or not.&#xA;You can refer to the pattern &amp;ldquo;Defined Service Levels&amp;rdquo; for more information on SLI &amp;amp; SLOs.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Continuous Deployment</title>
+				<link>http://localhost:1313/releasing/continuous-deployment/</link>
+				<pubDate>Tue, 12 Apr 2022 17:46:08 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/continuous-deployment/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;Continuous Deployment consists in automatically deploying in production any software changes that go through the automated tests of the production pipeline. This helps ensuring consistent Quality of Service over time by mitigating change risks.&lt;/p&gt;&#xA;&lt;p&gt;Automating deployments is key to ensure fast and reproducible results. Deployment is triggered only if automated tests are successful.&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works&#34;&gt;How it works&lt;/h1&gt;&#xA;&lt;p&gt;Continuous Deployment is the ultimate step following Continuous Integration and Continuous Delivery.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Hypercare</title>
+				<link>http://localhost:1313/releasing/hypercare/</link>
+				<pubDate>Tue, 12 Apr 2022 17:46:08 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/hypercare/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;Hypercare is the period of time immediately following a system’s Go Live or major change where an elevated level of support is available to ensure a good quality of service.&lt;/p&gt;&#xA;&lt;h1 id=&#34;when-to-use-it&#34;&gt;When to use it?&lt;/h1&gt;&#xA;&lt;p&gt;The use of hypercare will depend on:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The level of risk of the change: even if extensive tests have been performed before a change, there is still some part of risk that something may not go as planned. This may be due to the system’s complexity, to some differences between test and production environments, to the coverage of the tests, …&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Progressive Roll Out</title>
+				<link>http://localhost:1313/releasing/progressive-roll-out/</link>
+				<pubDate>Tue, 12 Apr 2022 17:46:08 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/progressive-roll-out/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;Traditionally, a new product or feature would be released in its full form, to every user at the exact same time. Using progressive roll-out, that same new product or feature would be released in smaller forms, to a few user groups at a time, and in stage intervals.&lt;/p&gt;&#xA;&lt;p&gt;Progressive roll-out let you break up “big bang” releases into smaller, more manageable increments thus reducing the risks and making roll-back easier.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Smoke Testing</title>
+				<link>http://localhost:1313/releasing/smoke-testing/</link>
+				<pubDate>Tue, 12 Apr 2022 15:59:09 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/smoke-testing/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;An origin of the term smoke test comes from electronic hardware testing. If you see smoke coming from the board when you plug in a new board and turn on the power, then you can turn off the power and stop the test.&lt;/p&gt;&#xA;&lt;p&gt;Another possible origin of the term comes from the plumbing industry: smoke is created and blown into tubing, and then the pipes are examined to make sure no smoke is escaping to verify that there is no leak.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Immutability</title>
+				<link>http://localhost:1313/releasing/immutability/</link>
+				<pubDate>Tue, 12 Apr 2022 12:28:04 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/immutability/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;In a traditional server infrastructure, servers are continually updated and modified in place. Teams working with this kind of infrastructure log into their servers to manually upgrade or downgrade components, modify configuration files, and deploy new applications directly. These servers are mutable; they are changed after they’re created.&lt;/p&gt;&#xA;&lt;p&gt;Some  typical problems of mutable infrastructures are the following:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Each server has a different configuration, often called ‘configuration drift’.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Technical issues which are hard to find or reproduce&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

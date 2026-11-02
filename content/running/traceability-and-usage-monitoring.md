@@ -13,7 +13,6 @@ tags:
 description: "My systems provide data that enable the understanding of usage."
 ---
 
-![My systems provide data that enable the understanding of usage.](/images/traceability-and-usage-monitoring.webp)
 
 # Description
 

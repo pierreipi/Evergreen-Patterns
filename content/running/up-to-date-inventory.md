@@ -13,7 +13,6 @@ tags:
 description: "Tracking any type of asset that have a relationship with my systems is the foundation of efficient operations."
 ---
 
-![Tracking any type of asset that have a relationship with my systems is the foundation of efficient operations.](/images/up-to-date-inventory.webp)
 
 # Description
 

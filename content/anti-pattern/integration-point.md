@@ -14,7 +14,6 @@ description: "When a system connects with another system, it takes on board fail
 ---
 
 ![Card for Integration Point.](/cards/integration-point.png)
-![When a system connects with another system, it takes on board failures and problems of the latter.](/images/integration-point.webp)
 
 # Description
 

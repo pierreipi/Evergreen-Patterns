@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Operability patterns and anti-patterns to improve the quality of service of IT systems.">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+    
+      <link href="/categories/architecting/index.xml" rel="alternate" type="application/rss+xml" title="Evergreen Patterns (2022)" />
+      <link href="/categories/architecting/index.xml" rel="feed" type="application/rss+xml" title="Evergreen Patterns (2022)" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/categories/architecting/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/categories/architecting/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Architecting">
+	<meta property="og:description" content="Operability patterns and anti-patterns to improve the quality of service of IT systems.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Architecting">
+	<meta itemprop="description" content="Operability patterns and anti-patterns to improve the quality of service of IT systems.">
+	<meta itemprop="datePublished" content="2022-04-18T17:53:35+02:00">
+	<meta itemprop="dateModified" content="2022-04-18T17:53:35+02:00">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Architecting">
+	<meta name="twitter:description" content="Operability patterns and anti-patterns to improve the quality of service of IT systems.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-term">
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Architecting
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+<main class="pb7" role="main">
+  
+  
+
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Architecting Systems</span>
+    
+      <time class="f6 db" datetime="2022-04-12T15:51:36+02:00">April 12, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/architecting/continuous-architecture/" class="link black dim">
+        Continuous Architecture
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="definition">DEFINITION</h1>
+<p>&ldquo;Yesterday’s architecture methodologies and processes will not deliver future solutions&rdquo; is Continuous Architecture credo. This initiative was launched at Michelin in 2019 and is the umbrella project for the transformation of the architect’s role and the associated rituals and practices.</p>
+<p>Operability has a special place in this initiative as a modern Architect responsibility does not end when a product is shipped. Special care needs to be taken to ensure that the product architects design will gracefully handle production hazards, and that architecture runways will be also populated with items that come from production feedbacks and learnings. It becomes mandatory to have a <strong>feedback loop</strong> in place so that Architects are well connected to the production.</p>
+    </div>
+    <a href="/architecting/continuous-architecture/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Architecting Systems</span>
+    
+      <time class="f6 db" datetime="2022-04-12T12:27:55+02:00">April 12, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/architecting/circuit-breaker/" class="link black dim">
+        Circuit Breaker
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>The Circuit Breaker is a very popular resilience pattern to interconnect systems synchronously.
+It protects the caller from failures of the invoked service.</p>
+<p>Useful reading: [https://www.martinfowler.com/bliki/CircuitBreaker.html](Martin Fowler article)</p>
+<h1 id="how-it-works-">How it works ?</h1>
+<p>A Circuit breaker has three states:</p>
+<ul>
+<li>Closed (initial default state)</li>
+<li>Opened</li>
+<li>Half-opened</li>
+</ul>
+<p>Initially it will be closed. Whenever errors are encountered, it will switch the the &ldquo;Opened&rdquo; state. After some time, it will go back to the &ldquo;Half-Opened&rdquo; state automatically. In the &ldquo;Half-Opened&rdquo; state, the operation will be tried, and if it fails the circuit will automatically switch back to the &ldquo;Opened&rdquo; state, if it is successfull it will switch to &ldquo;Closed&rdquo;.</p>
+    </div>
+    <a href="/architecting/circuit-breaker/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+		<ul class="pagination pagination-default">
+			<li class="page-item">
+				<a href="/categories/architecting/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+			</li>
+		<li class="page-item">
+			<a href="/categories/architecting/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+		</li>
+			<li class="page-item">
+				<a href="/categories/architecting/" aria-label="Page 1" class="page-link" role="button">1</a>
+			</li>
+			<li class="page-item active">
+				<a aria-current="page" aria-label="Page 2" class="page-link" role="button">2</a>
+			</li>
+		<li class="page-item disabled">
+			<a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+		</li>
+			<li class="page-item disabled">
+				<a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+			</li>
+		</ul></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

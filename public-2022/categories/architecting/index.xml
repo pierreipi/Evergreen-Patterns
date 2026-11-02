@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Architecting on Evergreen Patterns (2022)</title>
+		<link>http://localhost:1313/categories/architecting/</link>
+		<description>Recent content in Architecting on Evergreen Patterns (2022)</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 18 Apr 2022 17:53:35 +0200</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/categories/architecting/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Bulkhead</title>
+				<link>http://localhost:1313/architecting/bulkhead/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/bulkhead/</guid>
+				<description>&lt;p&gt;For a truly resilient and self-healing architecture, you need isolation, external monitoring, and autonomous decision-making. Bulkhead pattern is one of the component of a truly resilient architecture, alongside with others like Circuit Breaker.&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works-&#34;&gt;How it works ?&lt;/h1&gt;&#xA;&lt;p&gt;Bulkheads consists in partitioning your system in order to protect it against cascading errors. Essentially, a bulkhead assigns limited resources to specific (groups of) clients, applications, operations, client endpoints, and so on.&lt;/p&gt;&#xA;&lt;h1 id=&#34;when-to-use-it-&#34;&gt;When to use it ?&lt;/h1&gt;&#xA;&lt;p&gt;Use this pattern to:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Decoupling Middleware</title>
+				<link>http://localhost:1313/architecting/decoupling-middleware/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/decoupling-middleware/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main purpose&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Tight coupling between distinct components is an operability issue.&lt;/li&gt;&#xA;&lt;li&gt;Synchronized communications propagates the SLA between components and cascades failures&lt;/li&gt;&#xA;&lt;li&gt;Integration Middlewares can help to break the propagation of the SLA, because they loose this coupling&lt;/li&gt;&#xA;&lt;li&gt;Middlewares can protect the left side of the communication from failures of the right side&lt;/li&gt;&#xA;&lt;li&gt;This only work when used in an asynchronous exchange&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;examples&#34;&gt;Examples&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/architecting/1-examples.png&#34; alt=&#34;1-Examples&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tight coupling&lt;/strong&gt; between A and B&#xA;if B breaks the A breaks&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Fail Fast</title>
+				<link>http://localhost:1313/architecting/fail-fast/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/fail-fast/</guid>
+				<description>&lt;h1 id=&#34;principle&#34;&gt;Principle&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Before starting a task ensure it has a chance to complete.&lt;/strong&gt;&#xA;&lt;em&gt;A chef won’t start to cook before he ensured he has all the ingredients&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Fail-fast systems are designed to stop operation rather than attempting to continue a possibly flawed process.&lt;/strong&gt;&#xA;&lt;em&gt;Eases debugging, improves visibility and understanding of root causes&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Implemented in circuit breakers&lt;/strong&gt;&#xA;&lt;em&gt;When a circuit status in « Open »: solicitations instantly fail&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;examples&#34;&gt;Examples&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Input validation&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;We validate user input before we submit to a server&lt;/li&gt;&#xA;&lt;li&gt;If required data is missing, we do not try to execute the process&lt;/li&gt;&#xA;&lt;li&gt;Applicable to any kind of validation (uploaded data files, logistic network description, …)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Especially before long running operations&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Do not generate a big data file before checking that the destination is online for instance&lt;/li&gt;&#xA;&lt;li&gt;…&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Handshaking &amp; Backpressure</title>
+				<link>http://localhost:1313/architecting/handshaking--backpressure/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/handshaking--backpressure/</guid>
+				<description>&lt;h1 id=&#34;handshaking&#34;&gt;Handshaking&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Ensure that the third party can &lt;strong&gt;accept our sollicitation before we do it&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Be proactive&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Requires &lt;strong&gt;automated Health checks&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;How can we inquire about the health of our target system ?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Enabler for proper &lt;strong&gt;throttling&lt;/strong&gt; and simple &lt;strong&gt;back pressure mechanism&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;throttling&#34;&gt;Throttling&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;In our context, Throttling refers to the action of &lt;strong&gt;deliberately limiting an activity&lt;/strong&gt; in order to &lt;strong&gt;remove the burden&lt;/strong&gt; on a third party system&lt;/li&gt;&#xA;&lt;li&gt;In order to throttle, we need to have a system whose level of activity can be &lt;strong&gt;dynamically controlled&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;In modern programming languages, we are using dynamic thread pools&#xA;&lt;ul&gt;&#xA;&lt;li&gt;They start with an initial size&lt;/li&gt;&#xA;&lt;li&gt;This size can be &lt;strong&gt;dynamically changed&lt;/strong&gt; during runtime&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/architecting/HB-throttling.png&#34; alt=&#34;HB-throttling.png&#34;&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Stateless</title>
+				<link>http://localhost:1313/architecting/stateless/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/stateless/</guid>
+				<description>&lt;p&gt;A &lt;strong&gt;stateless system&lt;/strong&gt; gets as input parameters &lt;strong&gt;all necessary data for its execution&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;These systems are simple and have interesting benefits:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;No need to maintain any user session&lt;/li&gt;&#xA;&lt;li&gt;No need for any kind of sequencing of invocations&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Steady State</title>
+				<link>http://localhost:1313/architecting/steady-state/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/steady-state/</guid>
+				<description>&lt;p&gt;A software is designed to work in defined « normal » conditions.&lt;/p&gt;&#xA;&lt;p&gt;For example:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;There are some free space in the file system&lt;/li&gt;&#xA;&lt;li&gt;Database can extend&lt;/li&gt;&#xA;&lt;li&gt;The volume of data inside the DB is in predefined limits&lt;/li&gt;&#xA;&lt;li&gt;…&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Every time the software consumes resources that are associated with these conditions, it has an automated way to release these resources.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Automated&lt;/strong&gt; is the most important word here&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works-&#34;&gt;How it works ?&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Every time a resource is consumed, there is an automated way to release this resource&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A system should be able to run indefinitely &lt;strong&gt;without any human intervention&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;When a purge of data is required after 3 years of production people will not remember to do it, and if they do it might be unclear on how to do it&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The system will be slower and slower&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/architecting/SteadyState-works.png&#34; alt=&#34;SteadyState-works&#34;&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Using Timeouts</title>
+				<link>http://localhost:1313/architecting/using-timeouts/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/using-timeouts/</guid>
+				<description>&lt;h1 id=&#34;when-use-it-&#34;&gt;When use it ?&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Every time a third party is involved&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Even in some of the internals of your own stack : when trying to get access to a resource : remote file system, connection to a DB, a queue, …&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Seems easy?&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Do we really know and manage the complete chain of timeouts from the user action trigger all the way to the database access or middleware interaction ?&lt;/li&gt;&#xA;&lt;li&gt;What are the good, correct, useful and realistic values to use ?&lt;/li&gt;&#xA;&lt;li&gt;Understanding what are the different types of timeouts of the chain, which component reports them, and how they are reported&lt;/li&gt;&#xA;&lt;li&gt;Different types of timeout are related to completely different types of issues and problems!&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;example&#34;&gt;Example&lt;/h1&gt;&#xA;&lt;p&gt;Sample problems and questions you need to answer:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Reliable Service Exposition</title>
+				<link>http://localhost:1313/architecting/reliable-service-exposition/</link>
+				<pubDate>Tue, 12 Apr 2022 15:52:31 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/reliable-service-exposition/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;When exposing services that will be consumed by other systems and applications, it is important to implement several key mechanisms to ensure this exposition is as robust, secure, and resilient as possible.&lt;/p&gt;&#xA;&lt;p&gt;You want your service exposition to be documented, secured and auditable (must log all invocations).&lt;/p&gt;&#xA;&lt;h1 id=&#34;what-to-do&#34;&gt;WHAT TO DO&lt;/h1&gt;&#xA;&lt;p&gt;Do not reinvent the wheel&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Use standard protocols that are supported by a large set of tools and ensure a good testability&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Reliable Data Exchanges</title>
+				<link>http://localhost:1313/architecting/reliable-data-exchanges/</link>
+				<pubDate>Tue, 12 Apr 2022 15:52:20 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/reliable-data-exchanges/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Our different IT systems and applications exchange data, all the time.&lt;/p&gt;&#xA;&lt;p&gt;We know that these data exchanges can be a major source of incidents and problems in our systems. There are numerous tools and architectures that aim to make these data exchanges as resilient as possible. Even with these precautions in place, everything fails eventually, so we want to ensure that our data flows and exchanges are easy to diagnose and analyze.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Defined Service Levels</title>
+				<link>http://localhost:1313/architecting/defined-service-levels/</link>
+				<pubDate>Tue, 12 Apr 2022 15:52:02 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/defined-service-levels/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;When trying to define whether your systems offer a good quality of service, it is important to define what “Good” means in your own specific context. Observable Service Levels should be defined and measured so that you can know very confidently at any time if your systems are delivering a good experience to their businesses. Defining which are the good service levels is not an easy task and identifying which metrics must be captured to measure them must be done early enough.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Continuous Architecture</title>
+				<link>http://localhost:1313/architecting/continuous-architecture/</link>
+				<pubDate>Tue, 12 Apr 2022 15:51:36 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/continuous-architecture/</guid>
+				<description>&lt;h1 id=&#34;definition&#34;&gt;DEFINITION&lt;/h1&gt;&#xA;&lt;p&gt;&amp;ldquo;Yesterday’s architecture methodologies and processes will not deliver future solutions&amp;rdquo; is Continuous Architecture credo. This initiative was launched at Michelin in 2019 and is the umbrella project for the transformation of the architect’s role and the associated rituals and practices.&lt;/p&gt;&#xA;&lt;p&gt;Operability has a special place in this initiative as a modern Architect responsibility does not end when a product is shipped. Special care needs to be taken to ensure that the product architects design will gracefully handle production hazards, and that architecture runways will be also populated with items that come from production feedbacks and learnings. It becomes mandatory to have a &lt;strong&gt;feedback loop&lt;/strong&gt; in place so that Architects are well connected to the production.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Circuit Breaker</title>
+				<link>http://localhost:1313/architecting/circuit-breaker/</link>
+				<pubDate>Tue, 12 Apr 2022 12:27:55 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/circuit-breaker/</guid>
+				<description>&lt;p&gt;The Circuit Breaker is a very popular resilience pattern to interconnect systems synchronously.&#xA;It protects the caller from failures of the invoked service.&lt;/p&gt;&#xA;&lt;p&gt;Useful reading: [https://www.martinfowler.com/bliki/CircuitBreaker.html](Martin Fowler article)&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works-&#34;&gt;How it works ?&lt;/h1&gt;&#xA;&lt;p&gt;A Circuit breaker has three states:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Closed (initial default state)&lt;/li&gt;&#xA;&lt;li&gt;Opened&lt;/li&gt;&#xA;&lt;li&gt;Half-opened&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Initially it will be closed. Whenever errors are encountered, it will switch the the &amp;ldquo;Opened&amp;rdquo; state. After some time, it will go back to the &amp;ldquo;Half-Opened&amp;rdquo; state automatically. In the &amp;ldquo;Half-Opened&amp;rdquo; state, the operation will be tried, and if it fails the circuit will automatically switch back to the &amp;ldquo;Opened&amp;rdquo; state, if it is successfull it will switch to &amp;ldquo;Closed&amp;rdquo;.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

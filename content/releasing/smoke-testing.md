@@ -14,7 +14,6 @@ description: "I have automated tests which validate the most critical functional
 ---
 
 ![Card for Smoke Testing.](/cards/smoke-testing.png)
-![I have automated tests which validate the most critical functionalities, enabling quick and early post change validation.](/images/smoke-testing.webp)
 
 # Smoke Testing
 

@@ -15,7 +15,6 @@ description: "I use IT/Digital diregarding the finite nature of our environment 
 ---
 
 ![Card for Infinite Resources.](/cards/infinite-resources.png)
-![I use IT/Digital diregarding the finite nature of our environment and its overexploitation.](/images/infinite-resources.webp)
 
 # Description
 

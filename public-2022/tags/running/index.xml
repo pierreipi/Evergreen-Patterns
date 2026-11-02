@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Running on Evergreen Patterns (2022)</title>
+		<link>http://localhost:1313/tags/running/</link>
+		<description>Recent content in Running on Evergreen Patterns (2022)</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 14 Apr 2022 08:48:43 +0200</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/running/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Capacity Planning</title>
+				<link>http://localhost:1313/running/capacity-planning/</link>
+				<pubDate>Thu, 14 Apr 2022 08:48:43 +0200</pubDate>
+				<guid>http://localhost:1313/running/capacity-planning/</guid>
+				<description>&lt;h1 id=&#34;definition&#34;&gt;Definition&lt;/h1&gt;&#xA;&lt;p&gt;From Wikipedia, &amp;ldquo;Capacity planning is the process of determining the production capacity needed by an organization to meet changing demands for its products.&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;In the IT world, it is as a synonym for capacity management which is the term used by ITIL. IT capacity planning involves estimating the storage, computer hardware, software and connection infrastructure resources required over some future period of time.&lt;/p&gt;&#xA;&lt;p&gt;Capacity planning is very important for IT systems, because you wan&amp;rsquo;t to avoid facing capacity issues that will directly translate to outages. You want to monitor the resource usage of your systems in order to understand what are the trends.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Continuous Knowledge</title>
+				<link>http://localhost:1313/running/continuous-knowledge/</link>
+				<pubDate>Tue, 12 Apr 2022 16:12:21 +0200</pubDate>
+				<guid>http://localhost:1313/running/continuous-knowledge/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;In order to operate our systems in an efficient way, it is crucial to capitalize and share knowledge continuously.&lt;/p&gt;&#xA;&lt;p&gt;A clear and shared documentation allows more people to be able to troubleshoot an issue and to do it faster without having to rely on experts.&lt;/p&gt;&#xA;&lt;p&gt;It is important to keep updating the documentation in time by adding or modifying content related to new or updated features, but also by removing content that is not relevant anymore or by documenting known issues and their workarounds (as long as they exist).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Continuous Operability</title>
+				<link>http://localhost:1313/running/continuous-operability/</link>
+				<pubDate>Tue, 12 Apr 2022 16:12:21 +0200</pubDate>
+				<guid>http://localhost:1313/running/continuous-operability/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Like every pattern it is key. But it has the particularity of ensuring that the approach and effort remains consistent &amp;amp; constant over time (duration being the key point)&lt;/p&gt;&#xA;&lt;p&gt;Systems are living. They evolve with the changes implemented, the users usage changes, the businesses evolve&amp;hellip;.&lt;/p&gt;&#xA;&lt;p&gt;It is a continuous loop that needs to be put in place&lt;/p&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;The effort of operability is a continuous work (not only during the building of a solution). The business evolves, the usage evolves, the systems evolve, the data evolve : all these changes require ensuring the right level of satisfaction.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Embrace Failures</title>
+				<link>http://localhost:1313/running/embrace-failures/</link>
+				<pubDate>Tue, 12 Apr 2022 16:12:08 +0200</pubDate>
+				<guid>http://localhost:1313/running/embrace-failures/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;The purpose of “Embrace Failure” is to take the opportunity of failures to understand, learn and improve.&lt;/p&gt;&#xA;&lt;p&gt;This can be done at every level: technical, process, organization.&lt;/p&gt;&#xA;&lt;h1 id=&#34;when-to-use-it&#34;&gt;When to use it?&lt;/h1&gt;&#xA;&lt;p&gt;Embrace Failure is a mindset and can be used in many areas and activities.&lt;/p&gt;&#xA;&lt;p&gt;An obvious area is the operations: Problem Management is an example of “Embrace Failure” which consists in analyzing incidents clusters or critical incidents in order to find the root cause and fix it.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Event Management</title>
+				<link>http://localhost:1313/running/event-management/</link>
+				<pubDate>Tue, 12 Apr 2022 16:11:58 +0200</pubDate>
+				<guid>http://localhost:1313/running/event-management/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;In order to always anticipate and solve situations before they disturb the users, event management is essential.&lt;/p&gt;&#xA;&lt;p&gt;To be clear : an event is simply a change to the state of a service, a threshold is breached, or configuration item (CI) that is significant to its management.&lt;/p&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;The objective is simple: to have the information as soon as possible to provide a solution as quickly as possible. It also avoids mobilizing teams to scan the monitoring screens.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

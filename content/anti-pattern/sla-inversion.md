@@ -13,7 +13,6 @@ description: "The lowest system's availability is the one of all its coupled dep
 ---
 
 ![Card for SLA Inversion.](/cards/sla-inversion.png)
-![The lowest system's availability is the one of all its coupled dependencies.](/images/sla-inversion.webp)
 
 # Description
 

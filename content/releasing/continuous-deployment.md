@@ -12,7 +12,6 @@ tags:
 description: "I deploy my systems with an automation tool which guarantees deployment is fast and reproducible."
 ---
 
-![I deploy my systems with an automation tool which guarantees deployment is fast and reproducible.](/images/continuous-deployment.webp)
 
 # Description
 

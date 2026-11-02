@@ -26,7 +26,7 @@ interact_with: "unbalanced_capacities"
   - They start with an initial size
   - This size can be **dynamically changed** during runtime
 
-![HB-throttling.png](static/images/architecting/HB-throttling.png)
+![HB-throttling.png](/images/architecting/HB-throttling.png)
 
 # Back pressure
 
@@ -38,8 +38,8 @@ interact_with: "unbalanced_capacities"
   - **Use Reactive Streams** that implement Back Pressure “By Design”
   - Use technology specific solutions (Spark Streaming)
 
-![HB-1backpressure](static/images/architecting/HB-1backpressure.png)
-![HB-1backpressure](static/images/architecting/HB-2backpressure.png)
+![HB-1backpressure](/images/architecting/HB-1backpressure.png)
+![HB-1backpressure](/images/architecting/HB-2backpressure.png)
 
 - Ensure that in a publisher / consumer scenario a consumer **gets never overwhelmed** by a publisher that publishes too much too fast
 - The consumer becomes an **initiator**: when it is available to execute more work, it **requests tasks** to execute from the stream

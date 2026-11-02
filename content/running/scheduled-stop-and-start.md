@@ -14,7 +14,6 @@ tags:
 description: "I start my environment only when I use it, it remains off by default."
 ---
 
-![I start my environment only when I use it, it remains off by default.](/images/scheduled-stop-and-start.webp)
 
 # Description
 

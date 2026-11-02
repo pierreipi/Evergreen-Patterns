@@ -16,7 +16,6 @@ description: "Sharing and capitalizing knowledge continuously across teams is a 
 ---
 
 ![Card for Continuous Knowledge.](/cards/continuous-knowledge.png)
-![During a failure my systems retain relevant logs and data to enable both quick resolution and cold analysis.](/images/continuous-knowledge.webp)
 
 # Description
 

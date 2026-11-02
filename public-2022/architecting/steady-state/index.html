@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Steady State | Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="My systems operate indefinitely in well known and monitored conditions">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/architecting/steady-state/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/architecting/steady-state/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Steady State">
+	<meta property="og:description" content="My systems operate indefinitely in well known and monitored conditions">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="architecting">
+		<meta property="article:published_time" content="2022-04-18T17:53:35+02:00">
+		<meta property="article:modified_time" content="2022-04-18T17:53:35+02:00">
+		<meta property="article:tag" content="Architecting">
+
+	<meta itemprop="name" content="Steady State">
+	<meta itemprop="description" content="My systems operate indefinitely in well known and monitored conditions">
+	<meta itemprop="datePublished" content="2022-04-18T17:53:35+02:00">
+	<meta itemprop="dateModified" content="2022-04-18T17:53:35+02:00">
+	<meta itemprop="wordCount" content="242">
+	<meta itemprop="keywords" content="Architecting">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Steady State">
+	<meta name="twitter:description" content="My systems operate indefinitely in well known and monitored conditions">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-steady-state">
+   
+  
+
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+
+  <article class="page-steady-state flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    <a class="link dim" href="http://localhost:1313/architecting/">Architecting Systems</a>
+  </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Steady State</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-04-18T17:53:35+02:00">April 18, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>A software is designed to work in defined « normal » conditions.</p>
+<p>For example:</p>
+<ul>
+<li>There are some free space in the file system</li>
+<li>Database can extend</li>
+<li>The volume of data inside the DB is in predefined limits</li>
+<li>…</li>
+</ul>
+<p>Every time the software consumes resources that are associated with these conditions, it has an automated way to release these resources.</p>
+<p><strong>Automated</strong> is the most important word here</p>
+<h1 id="how-it-works-">How it works ?</h1>
+<ul>
+<li>Every time a resource is consumed, there is an automated way to release this resource
+<ul>
+<li>A system should be able to run indefinitely <strong>without any human intervention</strong></li>
+</ul>
+</li>
+<li>When a purge of data is required after 3 years of production people will not remember to do it, and if they do it might be unclear on how to do it
+<ul>
+<li>The system will be slower and slower</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/architecting/SteadyState-works.png" alt="SteadyState-works"></p>
+<h1 id="examples">Examples</h1>
+<p><strong>I create a temporary file that contains some processing data</strong>
+👍 <em>Steady state</em>: I implement the removal of this file when I am done with it</p>
+<p><strong>I store data in a database</strong>
+👍 <em>Steady state</em>: I implement the removal of data which is not useful anymore : it has become « cold » data. Purge or move the cold data out of the transactional system, it is not hard to automate.</p>
+<p><strong>I log application data in files</strong>
+👍 <em>Steady State</em>: I use rotation of my log files to avoid multiplication</p>
+<p><strong>I cache processing results in memory</strong>
+👍 <em>Steady State</em>: I have a cache invalidation strategy</p>
+<p><img src="/images/architecting/SteadyState-examples.png" alt="SteadyState-examples"></p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/categories/architecting/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Architecting</a>
+   </li>
+  
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/architecting/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Architecting</a>
+   </li>
+  
+</ul>
+
+      
+    </div><aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/architecting/bulkhead/">Bulkhead</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/decoupling-middleware/">Decoupling Middleware</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/fail-fast/">Fail Fast</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/handshaking--backpressure/">Handshaking &amp; Backpressure</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/stateless/">Stateless</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/using-timeouts/">Using Timeouts</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/reliable-service-exposition/">Reliable Service Exposition</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/reliable-data-exchanges/">Reliable Data Exchanges</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/defined-service-levels/">Defined Service Levels</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/continuous-architecture/">Continuous Architecture</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/circuit-breaker/">Circuit Breaker</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

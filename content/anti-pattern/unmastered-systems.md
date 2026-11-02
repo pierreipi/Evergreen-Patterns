@@ -13,7 +13,6 @@ description: "I don't have a complete and detailed view of the components which 
 ---
 
 ![Card for Unmastered Systems.](/cards/unmastered-systems.png)
-![I don't have a complete and detailed view of the components which my systems rely on.](/images/unmastered-systems.webp)
 
 # Description
 

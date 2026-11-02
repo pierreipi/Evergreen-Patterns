@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Using Timeouts | Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="My systems are configured to stop before being fully overloaded">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/architecting/using-timeouts/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/architecting/using-timeouts/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Using Timeouts">
+	<meta property="og:description" content="My systems are configured to stop before being fully overloaded">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="architecting">
+		<meta property="article:published_time" content="2022-04-18T17:53:35+02:00">
+		<meta property="article:modified_time" content="2022-04-18T17:53:35+02:00">
+		<meta property="article:tag" content="Architecting">
+
+	<meta itemprop="name" content="Using Timeouts">
+	<meta itemprop="description" content="My systems are configured to stop before being fully overloaded">
+	<meta itemprop="datePublished" content="2022-04-18T17:53:35+02:00">
+	<meta itemprop="dateModified" content="2022-04-18T17:53:35+02:00">
+	<meta itemprop="wordCount" content="424">
+	<meta itemprop="keywords" content="Architecting">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Using Timeouts">
+	<meta name="twitter:description" content="My systems are configured to stop before being fully overloaded">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-using-timeouts">
+   
+  
+
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+
+  <article class="page-using-timeouts flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    <a class="link dim" href="http://localhost:1313/architecting/">Architecting Systems</a>
+  </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Using Timeouts</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-04-18T17:53:35+02:00">April 18, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="when-use-it-">When use it ?</h1>
+<ul>
+<li>Every time a third party is involved
+<ul>
+<li>Even in some of the internals of your own stack : when trying to get access to a resource : remote file system, connection to a DB, a queue, …</li>
+</ul>
+</li>
+<li>Seems easy?
+<ul>
+<li>Do we really know and manage the complete chain of timeouts from the user action trigger all the way to the database access or middleware interaction ?</li>
+<li>What are the good, correct, useful and realistic values to use ?</li>
+<li>Understanding what are the different types of timeouts of the chain, which component reports them, and how they are reported</li>
+<li>Different types of timeout are related to completely different types of issues and problems!</li>
+</ul>
+</li>
+</ul>
+<h1 id="example">Example</h1>
+<p>Sample problems and questions you need to answer:</p>
+<ul>
+<li>What happens when the call from <strong>Recommendations</strong> to <strong>Relevance</strong> timeouts ?
+<ul>
+<li><strong>Relevance</strong> needs to know that there is no one still needing the result of the ongoing call to <strong>Promotions</strong> in this case.. The worst thing that could happen if that <strong>Relevance</strong> timeouts and retries…</li>
+</ul>
+</li>
+<li>Does it make sense to use a longer timeout between <strong>Relevance</strong> &amp; <strong>Promotions</strong> than between <strong>Recommendation</strong> and <strong>Relevance</strong> ?</li>
+<li>How can we propagate the information of a client timeout across the chain to avoid unnecessary work ?</li>
+</ul>
+<p><img src="/images/architecting/UsingTimeouts-examples.png" alt="Tux, the Linux mascot"></p>
+<h1 id="off-the-shelf-implementations">Off the shelf implementations</h1>
+<p>In Java</p>
+<ul>
+<li><a href="https://github.com/resilience4j/resilience4j">Resilience4J</a></li>
+<li><a href="https://github.com/spring-projects/spring-retry">String Retry</a></li>
+<li><a href="https://architecture.michelin.com/">Hystrix</a> is not developed anymore and Resilience4J should be used instead (however it is still rock solid, so do not replace Hystrix on purpose)</li>
+</ul>
+<p>In Golang</p>
+<ul>
+<li>The <a href="https://go.dev/blog/pipelines">context package</a>
+Even if Golang is not a standard development technology we use at Michelin, the understanding of the “context” package gives a good example of how these kind of issues could be fixed (how to cancel a complete chain of interactions).</li>
+</ul>
+<h1 id="best-practices">Best practices</h1>
+<ul>
+<li>Historical data is useful when available
+<ul>
+<li>Use it to define what are good timeout values</li>
+</ul>
+</li>
+<li>Consider using <a href="https://en.wikipedia.org/wiki/Exponential_backoff">Exponential Back-off</a> to avoid congestion when you have no idea of when a service will be available again</li>
+<li>Associate with retries but wisely
+<ul>
+<li>Only if it has a chance to succeed after an instant retry</li>
+<li>Depends on the nature of the failure</li>
+<li>Sometimes it may make a problem worse !</li>
+<li>If possible and applicable to your case, consider a fallback scenario instead of a retry</li>
+</ul>
+</li>
+<li>Timeout adjustments can have a great impact on the behavior and availability of applications
+<ul>
+<li>Try to ensure you capture a complete history of their values (in GIT directly)</li>
+<li>Useful to correlate application health with the values</li>
+</ul>
+</li>
+<li>When you consume an external API, make sure you use the values recommended by the provider of the API</li>
+</ul>
+<p><img src="/images/architecting/UsingTimeouts-bestpractices.png" alt="Tux, the Linux mascot"></p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/categories/architecting/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Architecting</a>
+   </li>
+  
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/architecting/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Architecting</a>
+   </li>
+  
+</ul>
+
+      
+    </div><aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/architecting/bulkhead/">Bulkhead</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/decoupling-middleware/">Decoupling Middleware</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/fail-fast/">Fail Fast</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/handshaking--backpressure/">Handshaking &amp; Backpressure</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/stateless/">Stateless</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/steady-state/">Steady State</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/reliable-service-exposition/">Reliable Service Exposition</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/reliable-data-exchanges/">Reliable Data Exchanges</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/defined-service-levels/">Defined Service Levels</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/continuous-architecture/">Continuous Architecture</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/circuit-breaker/">Circuit Breaker</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

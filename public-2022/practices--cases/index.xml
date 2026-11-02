@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Practices &amp; Cases on Evergreen Patterns (2022)</title>
+		<link>http://localhost:1313/practices--cases/</link>
+		<description>Recent content in Practices &amp; Cases on Evergreen Patterns (2022)</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<atom:link href="http://localhost:1313/practices--cases/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>http://localhost:1313/practices--cases/capacity-planning-on-azure/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/practices--cases/capacity-planning-on-azure/</guid>
+				<description>&lt;h1 id=&#34;generic-capacity-planing-steps&#34;&gt;Generic Capacity Planing Steps&lt;/h1&gt;&#xA;&lt;p&gt;We consider Capacity Planning as activities to estimate future needs of capacities of resources and define a actionable plan to guarantee the supply at committed time.&lt;/p&gt;&#xA;&lt;p&gt;Resources here include both IT hardware, software and services.&lt;/p&gt;&#xA;&lt;p&gt;Capacity Planning is an art of balance. You&amp;rsquo;d ensure when required, you have the right resources with just right amounts. We want to avoid 2 situations&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Over-Capacity, where too many resources are provided or used for nothing, which is waste.&lt;/li&gt;&#xA;&lt;li&gt;Under-Capacity, where not rnough resources are available to meet the requirements, which will casue system performance issue and ruin the user experiences and impact business results.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Depending on nature of IT systems and priorities of company, one risk could be taken more serious than another. For example, if cost saving is more critical, Over-Capacity should be more carefully watched and handled.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Handshaking &amp; Backpressure | Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="My systems collaborate with third parties to make sure they can handle my workload">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/architecting/handshaking--backpressure/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/architecting/handshaking--backpressure/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Handshaking & Backpressure">
+	<meta property="og:description" content="My systems collaborate with third parties to make sure they can handle my workload">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="architecting">
+		<meta property="article:published_time" content="2022-04-18T17:53:35+02:00">
+		<meta property="article:modified_time" content="2022-04-18T17:53:35+02:00">
+		<meta property="article:tag" content="Architecting">
+
+	<meta itemprop="name" content="Handshaking & Backpressure">
+	<meta itemprop="description" content="My systems collaborate with third parties to make sure they can handle my workload">
+	<meta itemprop="datePublished" content="2022-04-18T17:53:35+02:00">
+	<meta itemprop="dateModified" content="2022-04-18T17:53:35+02:00">
+	<meta itemprop="wordCount" content="335">
+	<meta itemprop="keywords" content="Architecting">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Handshaking & Backpressure">
+	<meta name="twitter:description" content="My systems collaborate with third parties to make sure they can handle my workload">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-handshaking-&amp;-backpressure">
+   
+  
+
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+
+  <article class="page-handshaking-&amp;-backpressure flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    <a class="link dim" href="http://localhost:1313/architecting/">Architecting Systems</a>
+  </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Handshaking &amp; Backpressure</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-04-18T17:53:35+02:00">April 18, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="handshaking">Handshaking</h1>
+<ul>
+<li>Ensure that the third party can <strong>accept our sollicitation before we do it</strong>
+<ul>
+<li>Be proactive</li>
+</ul>
+</li>
+<li>Requires <strong>automated Health checks</strong>
+<ul>
+<li>How can we inquire about the health of our target system ?</li>
+</ul>
+</li>
+<li>Enabler for proper <strong>throttling</strong> and simple <strong>back pressure mechanism</strong></li>
+</ul>
+<h1 id="throttling">Throttling</h1>
+<ul>
+<li>In our context, Throttling refers to the action of <strong>deliberately limiting an activity</strong> in order to <strong>remove the burden</strong> on a third party system</li>
+<li>In order to throttle, we need to have a system whose level of activity can be <strong>dynamically controlled</strong></li>
+<li>In modern programming languages, we are using dynamic thread pools
+<ul>
+<li>They start with an initial size</li>
+<li>This size can be <strong>dynamically changed</strong> during runtime</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/architecting/HB-throttling.png" alt="HB-throttling.png"></p>
+<h1 id="back-pressure">Back pressure</h1>
+<ul>
+<li>Back pressure describes ways to throttle a <strong>service consumption</strong> and handle <strong>peak volumes</strong></li>
+<li>A service needs <strong>a way to communicate</strong> back to its callers to indicate that it is under pressure: it is overloaded and needs to breathe</li>
+<li>There are numerous ways to implement Back pressure systems
+<ul>
+<li><strong>Add system health information</strong> inside existing responses (new header attributes for example)</li>
+<li><strong>Implement an health check</strong> that clients must evaluate <strong>before</strong> sending sollicitations to a service</li>
+<li><strong>Use Reactive Streams</strong> that implement Back Pressure “By Design”</li>
+<li>Use technology specific solutions (Spark Streaming)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/architecting/HB-1backpressure.png" alt="HB-1backpressure">
+<img src="/images/architecting/HB-2backpressure.png" alt="HB-1backpressure"></p>
+<ul>
+<li>Ensure that in a publisher / consumer scenario a consumer <strong>gets never overwhelmed</strong> by a publisher that publishes too much too fast</li>
+<li>The consumer becomes an <strong>initiator</strong>: when it is available to execute more work, it <strong>requests tasks</strong> to execute from the stream</li>
+<li>Reactive Streams have an implementation impact on <strong>both sides</strong></li>
+</ul>
+<h2 id="back-pressure-with-older-architecture">Back pressure with older architecture</h2>
+<ul>
+<li>When reactive streams are not applicable because
+<ul>
+<li>It is not possible to impact the implementation of both sides of the exchange</li>
+<li>The technology is not available for the runtimes used</li>
+</ul>
+</li>
+<li>Simpler implementations are still possible with <strong>Health Checks</strong> for example:
+<ul>
+<li>Query health checks periodically to check if its ok to keep sending activity : maybe a complex batch activity is in progress on the service side, and it is not a good time for sending a lot of work load?</li>
+</ul>
+</li>
+</ul>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/categories/architecting/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Architecting</a>
+   </li>
+  
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/architecting/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Architecting</a>
+   </li>
+  
+</ul>
+
+      
+    </div><aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/architecting/bulkhead/">Bulkhead</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/decoupling-middleware/">Decoupling Middleware</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/fail-fast/">Fail Fast</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/stateless/">Stateless</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/steady-state/">Steady State</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/using-timeouts/">Using Timeouts</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/reliable-service-exposition/">Reliable Service Exposition</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/reliable-data-exchanges/">Reliable Data Exchanges</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/defined-service-levels/">Defined Service Levels</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/continuous-architecture/">Continuous Architecture</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/circuit-breaker/">Circuit Breaker</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

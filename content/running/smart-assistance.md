@@ -13,7 +13,6 @@ tags:
 description: "I know my users to provide a consistent and responsive user experience with appropriate channels for their work."
 ---
 
-![I know my users to provide a consistent and responsive user experience with appropriate channels for their work.](/images/smart-assistance.webp)
 
 # Description
 Smart Assistance is a pattern focused on creating software systems that deeply understand their users' needs, preferences, and working environments. By leveraging advanced technologies such as artificial intelligence (AI), machine learning (ML), and contextual analysis, this pattern aims to provide a highly personalized, consistent, and responsive user experience. Smart Assistance systems anticipate user needs, offering relevant information and functionalities before they are explicitly requested. This proactive approach ensures that interactions are streamlined, efficient, and tailored to the unique requirements of each user, across the appropriate channels of their work.

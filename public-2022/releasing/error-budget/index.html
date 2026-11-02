@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Error Budget | Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Service Level Objective violations must be anticipated &amp; trigger consequences">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/releasing/error-budget/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/releasing/error-budget/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Error Budget">
+	<meta property="og:description" content="Service Level Objective violations must be anticipated &amp; trigger consequences">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="releasing">
+		<meta property="article:published_time" content="2022-04-14T16:27:56+02:00">
+		<meta property="article:modified_time" content="2022-04-14T16:27:56+02:00">
+		<meta property="article:tag" content="Releasing">
+
+	<meta itemprop="name" content="Error Budget">
+	<meta itemprop="description" content="Service Level Objective violations must be anticipated &amp; trigger consequences">
+	<meta itemprop="datePublished" content="2022-04-14T16:27:56+02:00">
+	<meta itemprop="dateModified" content="2022-04-14T16:27:56+02:00">
+	<meta itemprop="wordCount" content="444">
+	<meta itemprop="keywords" content="Releasing">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Error Budget">
+	<meta name="twitter:description" content="Service Level Objective violations must be anticipated &amp; trigger consequences">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-error-budget">
+   
+  
+
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+
+  <article class="page-error-budget flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    <a class="link dim" href="http://localhost:1313/releasing/">Releasing Systems</a>
+  </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Error Budget</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-04-14T16:27:56+02:00">April 14, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><h1 id="definition">Definition</h1>
+<p>Error Budgeting is an SRE practice that is very useful to help you find the proper pace and balance between developing new end user features or making your system more resilient and stable.</p>
+<p>When implementing SRE practices, you will start by identify the good service level indicators (SLIs) and associate them with objectives (SLOs) that will let you know at any time if the service you are delivering to your users is acceptable or not.
+You can refer to the pattern &ldquo;Defined Service Levels&rdquo; for more information on SLI &amp; SLOs.</p>
+<p>Let&rsquo;s imagine that you manage a service for which you have a target SLO of 99.5% availability.
+In this case, your error budget is 0.5% (100 - 99.5), it means that you can be unavailable 0.5% of the time and still meet your objective.
+For a bucket of 28 days, it means that your service can be unavailable for 200 minutes.</p>
+<p>This budget of time, your Error Budget, is there to be spent if you need to. And you can for example decide to spend it by delivering new features. Outages of the service that are either planned or non-planned should impact your Error Budget the same way (from a end-user standpoint, it doesn&rsquo;t really matter if it was planned or not, the result is the same), but it is something that you can of course decide to change depending on your context.</p>
+<p>When you need to determine wether or not you can accept to take risks by delivering new end-user features in production you will check wether or not you have remaining error budget. If you don&rsquo;t then you should not accept this delivery and instead have your build team focus on non functional requirements in order to fix the actual cause for the availability issue (implement additional resilience or self healing patterns for example).</p>
+<p>Preparing a post mortem or Root Cause Analysis review is also a typical consequence of not reaching your SLO and consuming all your error budget.</p>
+<h1 id="how">How</h1>
+<p>The consumption of the error budget should of course be monitored so that at any given point of time, you know wether or not you have budget left for the current rolling time window (28 days is a recommandation, because it always contain 4 weekends), and if you are below your SLO, you want to be able to determine your burn rate, which represent how fast you are currently consuming your budget.</p>
+<p>The burn rate will represent how urgently you need to react to the problem in order to preserve your objective target. And following it closely will help you be more proactive to SLO violations.</p>
+<h1 id="external-resources">External resources</h1>
+<p><a href="https://sre.google/workbook/error-budget-policy/">https://sre.google/workbook/error-budget-policy/</a></p>
+<p><a href="https://sre.google/workbook/alerting-on-slos/">https://sre.google/workbook/alerting-on-slos/</a></p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/categories/releasing/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Releasing</a>
+   </li>
+  
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/releasing/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Releasing</a>
+   </li>
+  
+</ul>
+
+      
+    </div></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

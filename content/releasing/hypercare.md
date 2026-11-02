@@ -13,7 +13,6 @@ tags:
 description: "I make sure that all required contributors are prepared and involved during a change on my systems to ensure prompt reaction."
 ---
 
-![I make sure that all required contributors are prepared and involved during a change on my systems to ensure prompt reaction.](/images/hypercare.webp)
 
 # Description
 

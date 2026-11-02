@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Running on Evergreen Patterns (2022)</title>
+		<link>http://localhost:1313/categories/running/</link>
+		<description>Recent content in Running on Evergreen Patterns (2022)</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 14 Apr 2022 08:48:43 +0200</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/categories/running/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Capacity Planning</title>
+				<link>http://localhost:1313/running/capacity-planning/</link>
+				<pubDate>Thu, 14 Apr 2022 08:48:43 +0200</pubDate>
+				<guid>http://localhost:1313/running/capacity-planning/</guid>
+				<description>&lt;h1 id=&#34;definition&#34;&gt;Definition&lt;/h1&gt;&#xA;&lt;p&gt;From Wikipedia, &amp;ldquo;Capacity planning is the process of determining the production capacity needed by an organization to meet changing demands for its products.&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;In the IT world, it is as a synonym for capacity management which is the term used by ITIL. IT capacity planning involves estimating the storage, computer hardware, software and connection infrastructure resources required over some future period of time.&lt;/p&gt;&#xA;&lt;p&gt;Capacity planning is very important for IT systems, because you wan&amp;rsquo;t to avoid facing capacity issues that will directly translate to outages. You want to monitor the resource usage of your systems in order to understand what are the trends.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Continuous Knowledge</title>
+				<link>http://localhost:1313/running/continuous-knowledge/</link>
+				<pubDate>Tue, 12 Apr 2022 16:12:21 +0200</pubDate>
+				<guid>http://localhost:1313/running/continuous-knowledge/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;In order to operate our systems in an efficient way, it is crucial to capitalize and share knowledge continuously.&lt;/p&gt;&#xA;&lt;p&gt;A clear and shared documentation allows more people to be able to troubleshoot an issue and to do it faster without having to rely on experts.&lt;/p&gt;&#xA;&lt;p&gt;It is important to keep updating the documentation in time by adding or modifying content related to new or updated features, but also by removing content that is not relevant anymore or by documenting known issues and their workarounds (as long as they exist).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Continuous Operability</title>
+				<link>http://localhost:1313/running/continuous-operability/</link>
+				<pubDate>Tue, 12 Apr 2022 16:12:21 +0200</pubDate>
+				<guid>http://localhost:1313/running/continuous-operability/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Like every pattern it is key. But it has the particularity of ensuring that the approach and effort remains consistent &amp;amp; constant over time (duration being the key point)&lt;/p&gt;&#xA;&lt;p&gt;Systems are living. They evolve with the changes implemented, the users usage changes, the businesses evolve&amp;hellip;.&lt;/p&gt;&#xA;&lt;p&gt;It is a continuous loop that needs to be put in place&lt;/p&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;The effort of operability is a continuous work (not only during the building of a solution). The business evolves, the usage evolves, the systems evolve, the data evolve : all these changes require ensuring the right level of satisfaction.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Embrace Failures</title>
+				<link>http://localhost:1313/running/embrace-failures/</link>
+				<pubDate>Tue, 12 Apr 2022 16:12:08 +0200</pubDate>
+				<guid>http://localhost:1313/running/embrace-failures/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;The purpose of “Embrace Failure” is to take the opportunity of failures to understand, learn and improve.&lt;/p&gt;&#xA;&lt;p&gt;This can be done at every level: technical, process, organization.&lt;/p&gt;&#xA;&lt;h1 id=&#34;when-to-use-it&#34;&gt;When to use it?&lt;/h1&gt;&#xA;&lt;p&gt;Embrace Failure is a mindset and can be used in many areas and activities.&lt;/p&gt;&#xA;&lt;p&gt;An obvious area is the operations: Problem Management is an example of “Embrace Failure” which consists in analyzing incidents clusters or critical incidents in order to find the root cause and fix it.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Event Management</title>
+				<link>http://localhost:1313/running/event-management/</link>
+				<pubDate>Tue, 12 Apr 2022 16:11:58 +0200</pubDate>
+				<guid>http://localhost:1313/running/event-management/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;In order to always anticipate and solve situations before they disturb the users, event management is essential.&lt;/p&gt;&#xA;&lt;p&gt;To be clear : an event is simply a change to the state of a service, a threshold is breached, or configuration item (CI) that is significant to its management.&lt;/p&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;The objective is simple: to have the information as soon as possible to provide a solution as quickly as possible. It also avoids mobilizing teams to scan the monitoring screens.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Observability</title>
+				<link>http://localhost:1313/running/observability/</link>
+				<pubDate>Tue, 12 Apr 2022 16:11:50 +0200</pubDate>
+				<guid>http://localhost:1313/running/observability/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;The purpose of Observability is to better understand the system’s behavior and state to reduce both the time to detect an issue and the time to fix the issue. To be fully customer centric and secure the Quality of Service, the system to consider for observability, is the one supporting business capabilities or processes from an End to End and Full Stack perspective, including critical dependencies. Therfore, it is likely that the observability will factor in various applications, flows, components, and layers ranging from middlewares to infrastructure.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Self Healing</title>
+				<link>http://localhost:1313/running/self-healing/</link>
+				<pubDate>Tue, 12 Apr 2022 16:03:10 +0200</pubDate>
+				<guid>http://localhost:1313/running/self-healing/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;The main expectation is to provide an automatic resolution to an identified situation.&lt;/p&gt;&#xA;&lt;p&gt;The automation will be triggered by:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;an identified event (via monitoring or directly by the system).&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;a direct request from a user of the system (solicitation)The solution must allow to answer all or part of the situation as soon as possible. This automatic resolution must also be tracked in the tools to allow for analysis and reporting.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Andon</title>
+				<link>http://localhost:1313/running/andon/</link>
+				<pubDate>Tue, 12 Apr 2022 16:02:59 +0200</pubDate>
+				<guid>http://localhost:1313/running/andon/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Andon is a way of working in an organization through incident alerting, that makes Quality of Service the priority for all, all the time and supports a “Production First” culture. “Pulling the Andon cord” triggers the lightening of a “lamp where people go”, i.e., the incident. Anyone in the team is trusted and empowered to “pull the cord” to prevent an incident getting much worse. Team members take pride by contributing to the Quality of Service.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Collecting Evidence</title>
+				<link>http://localhost:1313/running/collecting-evidence/</link>
+				<pubDate>Tue, 12 Apr 2022 16:02:59 +0200</pubDate>
+				<guid>http://localhost:1313/running/collecting-evidence/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;The purpose of Collecting Evidence is to make sure to gather and preserve all elements (application logs, system logs, memory dumps, temporary files, …) that can be used to determine the root cause of an incident.&lt;/p&gt;&#xA;&lt;p&gt;Those elements must be collected as soon as possible to make sure that no manual action has been performed that could alter the system’s state. Ideally, the system itself should make it automatic or at least easy.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Traceability and Usage Monitoring</title>
+				<link>http://localhost:1313/running/traceability-and-usage-monitoring/</link>
+				<pubDate>Tue, 12 Apr 2022 16:02:59 +0200</pubDate>
+				<guid>http://localhost:1313/running/traceability-and-usage-monitoring/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;The goal of Traceability &amp;amp; Usage Monitoring is to better understand the usage of the application: when it is used, by which users (which types of users, from which locations ,…), what functions or part of the application are used, how is the application used, …&lt;/p&gt;&#xA;&lt;p&gt;There are many reasons to do so:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;To follow up the ramp-up and adoption of a new application&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;To know when the application is least used to better plan maintenance or changes&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Up To Date Inventory</title>
+				<link>http://localhost:1313/running/up-to-date-inventory/</link>
+				<pubDate>Tue, 12 Apr 2022 16:02:59 +0200</pubDate>
+				<guid>http://localhost:1313/running/up-to-date-inventory/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;IT assets are both expensive to acquire and maintain. As a result, asset management plays a critical role in helping teams ensure the efficient use of resources (availability, up to date, etc.), while supporting the needs of users and business functions.&lt;/p&gt;&#xA;&lt;p&gt;This is something that is required for many actions, such as&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Incident anticipation, fast detection and diagnosis&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Change impact assessment&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Obsolescence management&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Security vulnerability analysis&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Technical evolutions and modernization management&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Time Is Precious</title>
+				<link>http://localhost:1313/running/time-is-precious/</link>
+				<pubDate>Tue, 12 Apr 2022 16:02:45 +0200</pubDate>
+				<guid>http://localhost:1313/running/time-is-precious/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Capacity is not unlimited. We need to use the best of the teams&amp;rsquo; skills. We must ensure that the workload is allocated to the most valuable activities.&lt;/p&gt;&#xA;&lt;p&gt;In activable solutions, all the automation portfolio takes a major position. But other patterns contribute to this balance (observability, Continuous Knowledge,&amp;hellip;).&lt;/p&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;We cannot speak of a gain but of gains.&lt;/p&gt;&#xA;&lt;p&gt;This covers several dimensions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;First of all, the comfort of the teams in order to facilitate the access to knowledge, or the suppression of repetitive tasks.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Smart Assistance</title>
+				<link>http://localhost:1313/running/smart-assistance/</link>
+				<pubDate>Tue, 12 Apr 2022 15:59:23 +0200</pubDate>
+				<guid>http://localhost:1313/running/smart-assistance/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;The notion of Smart Assistance includes all the technologies that allow to :&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Digitize the relationship with users.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Allow to bring autonomy by an automatic response to the user.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;The gain to look for through these new use cases are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;An improvement in the Quality of service&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;A contextualized, enhanced and in the end, improved user support experience&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;A stronger autonomy of users in their work.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Reduction of the support teams&amp;rsquo; workload&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

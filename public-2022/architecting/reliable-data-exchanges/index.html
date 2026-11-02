@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Reliable Data Exchanges | Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="My data exchanges ensure consistency &amp; integrity between systems">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/architecting/reliable-data-exchanges/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/architecting/reliable-data-exchanges/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Reliable Data Exchanges">
+	<meta property="og:description" content="My data exchanges ensure consistency &amp; integrity between systems">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="architecting">
+		<meta property="article:published_time" content="2022-04-12T15:52:20+02:00">
+		<meta property="article:modified_time" content="2022-04-12T15:52:20+02:00">
+		<meta property="article:tag" content="Architecting">
+
+	<meta itemprop="name" content="Reliable Data Exchanges">
+	<meta itemprop="description" content="My data exchanges ensure consistency &amp; integrity between systems">
+	<meta itemprop="datePublished" content="2022-04-12T15:52:20+02:00">
+	<meta itemprop="dateModified" content="2022-04-12T15:52:20+02:00">
+	<meta itemprop="wordCount" content="577">
+	<meta itemprop="keywords" content="Architecting">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Reliable Data Exchanges">
+	<meta name="twitter:description" content="My data exchanges ensure consistency &amp; integrity between systems">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-reliable-data-exchanges">
+   
+  
+
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+
+  <article class="page-reliable-data-exchanges flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    <a class="link dim" href="http://localhost:1313/architecting/">Architecting Systems</a>
+  </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Reliable Data Exchanges</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-04-12T15:52:20+02:00">April 12, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="main-purpose">MAIN PURPOSE</h1>
+<p>Our different IT systems and applications exchange data, all the time.</p>
+<p>We know that these data exchanges can be a major source of incidents and problems in our systems. There are numerous tools and architectures that aim to make these data exchanges as resilient as possible. Even with these precautions in place, everything fails eventually, so we want to ensure that our data flows and exchanges are easy to diagnose and analyze.</p>
+<p>Making these data exchanges observable often needs to be addressed at the architecture level.</p>
+<h1 id="what-to-do">WHAT TO DO</h1>
+<p>Being able to correlate information across the different systems is key. Different systems may use different IDs for the same business objects, so you need to have a mechanism in place to be able to correlate and map these different IDs to understand the complete lineage of the data, from the originating system to the last consumer.</p>
+<p>Implementing verifications mechanisms to check that the integrity of the data received by an application is also a great way to improve the operability and ease investigations.</p>
+<h1 id="examples">EXAMPLES</h1>
+<h3 id="end-to-end-visibility">End to end visibility</h3>
+<p>Several strategies can be followed to implement end to end visibility in data exchanges.</p>
+<p>First, you need to know and understand how the architecture can already answer parts of the problem. Modern architectures and tools can often provide rich visibility out of the box, and you shouldn’t reinvent the wheel (When using Kafka, API Managers, … take the time to understand what the tools already make observable).</p>
+<p><a href="https://opentelemetry.io/docs/reference/specification/overview/#tracing-signal">OpenTelemetry Traces</a> is a technology that is also getting more and more traction on the observability market. There are SDKs for numerous languages that you can use to describe standard OpenTelemetry transactions that can be analyzed and visualized in numerous standard tools. This should be the preferred way to implement such a requirement.</p>
+<p>You will not always have complete freedom in the implementation of this feature, because you may be interfacing with legacies or with software packages. Even in this case, there are some strategies that may be applicable:</p>
+<ul>
+<li>
+<p>Reuse the same record identifiers across systems</p>
+</li>
+<li>
+<p>Locally store the different identifiers mapping</p>
+</li>
+<li>
+<p>Introduce unique transaction identifiers by using UUIDs (Universally Unique Identifier) and propagate these across systems as much as possible</p>
+</li>
+</ul>
+<p>An UUID is a very useful data type looks like this</p>
+<p>123e4567-e89b-12d3-a456-426655440000</p>
+<p>Use it each time you need a <strong>unique</strong> value</p>
+<ul>
+<li>
+<p>One line of code to generate: <em>new UUID()</em>;</p>
+</li>
+<li>
+<p>Unique: To generate the same value twice you would need to generate 1 billion UUIDs per second for about 85 years</p>
+</li>
+</ul>
+<h3 id="automated-data-integrity-checks">Automated data integrity checks</h3>
+<p>For this requirement also start by understanding what is already offered and implemented by design in the tools and architectures that you use (schema validation, checksums, &hellip;).</p>
+<p>For mass data loading, verifying the integrity and correctness of the data integrated after a batch integration is <strong>essential</strong>.</p>
+<p>There are several strategies that can be used</p>
+<ul>
+<li>
+<p>A simple checksum mechanism: verify after loading that the sum of an amount attribute of all lines inserted are the same as in the input</p>
+</li>
+<li>
+<p>A deep comparison of all inserted lines: Can be costly but can be implemented by third party tools (Data Quality tools like OEDQ)</p>
+</li>
+</ul>
+<p>This may require the sending source to be verified along with the data</p>
+<ul>
+<li>These strategies must be built on top of transport-level integrity checking such as hash comparisons (md5sums, …) to ensure files were not tampered with or corrupted during network transfer. This may be <strong>already built-in</strong> if using dedicated data transfer tools.</li>
+</ul>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/categories/architecting/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Architecting</a>
+   </li>
+  
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/architecting/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Architecting</a>
+   </li>
+  
+</ul>
+
+      
+    </div><aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/architecting/defined-service-levels/">Defined Service Levels</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/continuous-architecture/">Continuous Architecture</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/circuit-breaker/">Circuit Breaker</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

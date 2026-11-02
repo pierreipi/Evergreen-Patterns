@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Generic Capacity Planing Steps
+We consider Capacity Planning as activities to estimate future needs of capacities of resources and define a actionable plan to guarantee the supply at committed time.
+Resources here include both IT hardware, software and services.
+Capacity Planning is an art of balance. You&rsquo;d ensure when required, you have the right resources with just right amounts. We want to avoid 2 situations
+
+Over-Capacity, where too many resources are provided or used for nothing, which is waste.
+Under-Capacity, where not rnough resources are available to meet the requirements, which will casue system performance issue and ruin the user experiences and impact business results.
+
+Depending on nature of IT systems and priorities of company, one risk could be taken more serious than another. For example, if cost saving is more critical, Over-Capacity should be more carefully watched and handled.">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/practices--cases/capacity-planning-on-azure/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/practices--cases/capacity-planning-on-azure/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Evergreen Patterns (2022)">
+	<meta property="og:description" content="Generic Capacity Planing Steps We consider Capacity Planning as activities to estimate future needs of capacities of resources and define a actionable plan to guarantee the supply at committed time.
+Resources here include both IT hardware, software and services.
+Capacity Planning is an art of balance. You’d ensure when required, you have the right resources with just right amounts. We want to avoid 2 situations
+Over-Capacity, where too many resources are provided or used for nothing, which is waste. Under-Capacity, where not rnough resources are available to meet the requirements, which will casue system performance issue and ruin the user experiences and impact business results. Depending on nature of IT systems and priorities of company, one risk could be taken more serious than another. For example, if cost saving is more critical, Over-Capacity should be more carefully watched and handled.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="practices-&amp;-cases">
+
+	<meta itemprop="name" content="Evergreen Patterns (2022)">
+	<meta itemprop="description" content="Generic Capacity Planing Steps We consider Capacity Planning as activities to estimate future needs of capacities of resources and define a actionable plan to guarantee the supply at committed time.
+Resources here include both IT hardware, software and services.
+Capacity Planning is an art of balance. You’d ensure when required, you have the right resources with just right amounts. We want to avoid 2 situations
+Over-Capacity, where too many resources are provided or used for nothing, which is waste. Under-Capacity, where not rnough resources are available to meet the requirements, which will casue system performance issue and ruin the user experiences and impact business results. Depending on nature of IT systems and priorities of company, one risk could be taken more serious than another. For example, if cost saving is more critical, Over-Capacity should be more carefully watched and handled.">
+	<meta itemprop="wordCount" content="953">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Evergreen Patterns (2022)">
+	<meta name="twitter:description" content="Generic Capacity Planing Steps We consider Capacity Planning as activities to estimate future needs of capacities of resources and define a actionable plan to guarantee the supply at committed time.
+Resources here include both IT hardware, software and services.
+Capacity Planning is an art of balance. You’d ensure when required, you have the right resources with just right amounts. We want to avoid 2 situations
+Over-Capacity, where too many resources are provided or used for nothing, which is waste. Under-Capacity, where not rnough resources are available to meet the requirements, which will casue system performance issue and ruin the user experiences and impact business results. Depending on nature of IT systems and priorities of company, one risk could be taken more serious than another. For example, if cost saving is more critical, Over-Capacity should be more carefully watched and handled.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-Capacity Planning on Azure">
+   
+  
+
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+
+  <article class="page-Capacity Planning on Azure flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    <a class="link dim" href="http://localhost:1313/practices--cases/">Practices &amp; Cases</a>
+  </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1"></h1>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><h1 id="generic-capacity-planing-steps">Generic Capacity Planing Steps</h1>
+<p>We consider Capacity Planning as activities to estimate future needs of capacities of resources and define a actionable plan to guarantee the supply at committed time.</p>
+<p>Resources here include both IT hardware, software and services.</p>
+<p>Capacity Planning is an art of balance. You&rsquo;d ensure when required, you have the right resources with just right amounts. We want to avoid 2 situations</p>
+<ul>
+<li>Over-Capacity, where too many resources are provided or used for nothing, which is waste.</li>
+<li>Under-Capacity, where not rnough resources are available to meet the requirements, which will casue system performance issue and ruin the user experiences and impact business results.</li>
+</ul>
+<p>Depending on nature of IT systems and priorities of company, one risk could be taken more serious than another. For example, if cost saving is more critical, Over-Capacity should be more carefully watched and handled.</p>
+<p>We breakdown Capacity Planning into following iterative steps:</p>
+<div class="code-block">
+    <button class="code-copy" type="button" hidden aria-label="Copy code to clipboard">
+      <span class="code-copy-label" aria-hidden="true">Copy</span>
+    </button>
+    <pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">
+flowchart TB
+    subgraph Perimeter [1. Define Perimeter &amp; Targets]
+        A1[Identify types, characters of resources]
+        A2[Confirm requirements with stakeholders]
+        A3[Valid goals of plan]
+        A4[Define targets of plan]
+    end
+    A1 --&gt; A2 --&gt; A3 --&gt; A4
+    subgraph Inventory[2. Initial Inventory]
+        B1[Purchase]
+        B2[Install]
+    end
+    B1 --&gt; B2
+    subgraph Monitor[3. Monitor for baseline]
+        C1[Identify main factors]
+        C2[Define golden signals]
+        C3[Collect data]
+        C4[Analyze patterns &amp; trends]
+    end
+    C1 --&gt; C2 --&gt; C3 --&gt; C4 --&gt; C1
+    subgraph Forecast[4. Forecast &amp; Plan Evolution]
+        D1[Secure Budget]
+        subgraph Plan[Plan changes]
+            DA1[Resource Types]
+            DA2[Sourcing]
+            DA3[Capacity Management Process]
+            DA4[Organization]
+        end
+        D1 --- Plan
+    end
+    subgraph Act[5. Take Actions]
+        E1[Replenish Stock]
+        E2[Migrate to new capacities]
+    end
+
+
+    Perimeter --&gt; Inventory --&gt; Monitor --&gt; Forecast --&gt; Act
+    E1 --&gt; Inventory
+    E2 --&gt; Perimeter</code></pre>
+  </div><h1 id="capacity-planning-for-azure-resources">Capacity Planning for Azure Resources</h1>
+<h2 id="general-analysis">General Analysis</h2>
+<p>When we do Capacity Planning for resources on Azure, we should consider the facts that comparing to self-owned on-premise resources, they are</p>
+<ul>
+<li>&lsquo;almost&rsquo; unlimited, available &lsquo;immediately&rsquo;, once you have the Enterprise Agreement settled.</li>
+<li>Can stop at anytime and &lsquo;usually&rsquo; stop the charging immediatly</li>
+</ul>
+<p>This means the Inventory step can be much lighter. However, it does NOT mean planning is no more important or needed. On the contrary, without careful planning and management, easy provisoning could cause over-capacity and waste of money.</p>
+<p>So, the main concern of Capacity Planning on Azure is over-capacity (waste or Non Value-added).</p>
+<p>Azure resources could have 2 billing models, provisoned and pay-as-you-go.</p>
+<p>Provisioned ones, for example Premium Storage Account, you should careful plan before provision to ensure not over-capacity, and monitor the actual utilization once it is in use, and adjust timely when thresholds are met.
+The thresholds can be defined based on generic best practices, and gradually tuned during run.</p>
+<p>For Pay-As-You-Go resources, you do not worry too much at provisioning time. However, when resources are put in place, you&rsquo;d find way to ensure it has the approrately used for right value-added. You&rsquo;d start watching the trends, especially increase rate. Compare the rate with historical records or cross check with service consumption. So, monitoring pay-as-you-go resources should highly rely on teams who actually use the resources for upstream services, who has 1st hand info of the service consumptions.</p>
+<h2 id="monitoring-approaches">Monitoring Approaches</h2>
+<p>Sample: in Asia CDP (Consumer Data Platform) application, how do we apply above principles into the Capacity Monitoring.</p>
+<ul>
+<li>Managed Disks <br>
+Billing Model: Provsioned<br>
+Monitoring approach: By comparing (IOPS) to upper limit <br>
+The Premiumu SSD attached to CDH servers are either P20 or P30. We can monitor IOPS to see whether it is over-sized. We can compare A (the max IOPS of last 30 days) to B (upper limit of the tier).
+<ul>
+<li>Over-Capacity: A &lt; 50% * B</li>
+<li>Under-Capacity: A &gt; 80% * B</li>
+</ul>
+</li>
+<li>Application Gateway <br>
+Billing Model: Provsioned with Min instance count + Auto-scale<br>
+Monitoring Approach: By comparing to highest watermark in last 30 days <br>
+For 2C applicatons, since we can not afford the tens of mins auto scale-out time, we have to ensure most of time, the min instance count can support the max capacity unit needs. The auto-scale is reserved for minimum service level during unexpected traffic surge. In such case, monitoring is to ensure fixed capacity unit is more than highest watermark in last 30 days, but not too much more, 200% buffer should be good enough.</li>
+<li>Storage Account <br>
+Billing Model: pay-as-you-go<br>
+Monitoring Approach: By checking increase rate in last 30 days via a agreed threshold <br>
+Considering increasing needs from data-driven xxx, we think the storage size will keep increasing even with periodical cleanup. The key is to control the speed of increase at reasonable level. So we will monitor the volumn incease and aler based on the increase rate.</li>
+<li>DataBricks <br>
+Billing Model: pay-as-you-go<br>
+Monitoring approach: By comparing run hours to average in last 30 days \
+DataBricks is charged based on computing time (of the VMs allocated to the workspace). It is difficult to check each jobs. We assume the total computing time in one month should be relatively stable, thus we compare the daily figure and average of 1 month. If it is 20% more than avg(last 30 days), we mark it as over-used. If it is 50% less than avg(last 30 days), we mark it as under-used.</li>
+<li>Data Factory <br>
+Billing Model: pay-as-you-go<br>
+Monitoring approach: By comparing run counts to average in last 30 days <br>
+Data Factory is charged by 1) Pipeline orchestration and execution 2) Data flow cluster execution and debugging (no applicable to our application) 3) Data Factory operations. (zero rate in our case). As DataBricks, we assume the total orchestration counts and data move hours in one month should be relatively stable, thus we compare the daily figure and average of 1 month. If it is 20% more than avg(last 30 days), we mark it as over-used. If it is 50% less than avg(last 30 days), we mark it as under-used.</li>
+</ul>
+<h1 id="to-be-continued">To Be Continued</h1>
+<ul class="pa0">
+  
+</ul><ul class="pa0">
+  
+</ul>
+
+      
+    </div></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

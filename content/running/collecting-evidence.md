@@ -14,7 +14,6 @@ description: "During a failure my systems retain relevant logs and data to enabl
 ---
 
 ![Card for Collecting Evidence.](/cards/capacity-planning.png)
-![During a failure my systems retain relevant logs and data to enable both quick resolution and cold analysis.](/images/capacity-planning.webp)
 
 # Description
 The "Collecting Evidence" pattern is a strategic approach designed to ensure that, in the event of a failure, a system is capable of retaining critical logs and data. This capability enables not only quick remediation of issues but also allows for a detailed post-mortem analysis to prevent future occurrences. By systematically capturing and storing diagnostic information, systems adhering to this pattern can significantly reduce downtime and improve reliability over time.

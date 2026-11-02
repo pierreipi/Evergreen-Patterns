@@ -13,7 +13,6 @@ tags:
 description: "Service Level Objective violations must be anticipated & trigger consequences."
 ---
 
-![Service Level Objective violations must be anticipated & trigger consequences.](/images/error-budget.webp)
 
 # Description
 

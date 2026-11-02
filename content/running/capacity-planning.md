@@ -15,7 +15,6 @@ description: "I anticipate and forecast systems activities and needs, to guarant
 ---
 
 ![Card for Capacity Planning.](/cards/capacity-planning.png)
-![I anticipate and forecast systems activities and needs, to guarantee service level objectives and system capacity.](/images/capacity-planning.webp)
 
 # Description
 

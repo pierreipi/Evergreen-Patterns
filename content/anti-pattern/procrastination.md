@@ -16,7 +16,6 @@ description: "Delaying to a later time leads to negative consequences and increa
 ---
 
 ![Card for Procrastination.](/cards/procrastination.png)
-![Delaying to a later time leads to negative consequences and increased stress in the long run.](/images/procrastination.webp)
 
 # Description
 

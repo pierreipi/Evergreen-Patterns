@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Anti-patterns | Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Common traps that the Evergreen patterns help to avoid.">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+    
+      <link href="/anti-patterns/index.xml" rel="alternate" type="application/rss+xml" title="Evergreen Patterns (2022)" />
+      <link href="/anti-patterns/index.xml" rel="feed" type="application/rss+xml" title="Evergreen Patterns (2022)" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/anti-patterns/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/anti-patterns/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Anti-patterns">
+	<meta property="og:description" content="Common traps that the Evergreen patterns help to avoid.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Anti-patterns">
+	<meta itemprop="description" content="Common traps that the Evergreen patterns help to avoid.">
+	<meta itemprop="datePublished" content="2022-05-29T15:53:06+02:00">
+	<meta itemprop="dateModified" content="2022-05-29T15:53:06+02:00">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Anti-patterns">
+	<meta name="twitter:description" content="Common traps that the Evergreen patterns help to avoid.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-section is-section">
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Anti-patterns
+        </h1>
+        
+          <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+            Common traps that the Evergreen patterns help to avoid.
+          </h2>
+        
+      </div>
+    </div>
+  </header>
+
+<main class="pb7" role="main">
+  
+  
+
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-05-29T15:53:06+02:00">May 29, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/everything-works-all-the-time/" class="link black dim">
+        Everything Works All The Time
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Systems are designed and built considering that everything will happen as planned and are therefore only considering the “happy path”:</p>
+<ul>
+<li>When they are waiting for files from other applications: they consider all those files will be received, and that they will all be on time and with the right format with no data issue</li>
+<li>When they are relying on external webservices, they expect them to be always available</li>
+<li>When they are sending data to a third-party system, they do not check the response to make sure everything is ok</li>
+<li>There is no (or not enough) troubleshooting information in the logs</li>
+<li>There is no timeout to interrupt abnormally long transactions</li>
+<li>Etc …</li>
+</ul>
+<p>When designing and building a system, it is very important to imagine what could go wrong (both internally and externally) and how to handle it or at least how to minimize the impact and help troubleshoot. In some cases, there may be a degraded mode providing only the most critical functionalities.</p>
+    </div>
+    <a href="/anti-patterns/everything-works-all-the-time/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-05-29T15:53:06+02:00">May 29, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/hero-problem-solving/" class="link black dim">
+        Hero Problem Solving
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>It is very convenient to have someone in the team who knows the system very well and is able to rapidly find the issue and solve it. When major incidents happen, they get involved very quickly to fix the issue, and they do. It is however very likely that no RCA will be performed to learn, capitalize and share the knowledge.
+Of course, having people who know the system very well is a good thing, but it is important that the team does not rely on them to always fix issues, thus creating a dependency on them.
+What will happen when those “heroes” will be on vacation or when they will leave the team?
+Therefore, it is important to keep the documentation up to date and to coach team members so everyone can solve most issues and will not rely on a few members. Of course, at the beginning they may take a bit longer to fix an issue, but over time they will improve and solving issues will not depend on a few heroes. This will also highlight any loophole in the documentation that needs to be fixed.
+Automating some tasks can also be very helpful: scripts that fix specific issues or do some checks and can be launched by many people will also reduce dependency on experts.</p>
+    </div>
+    <a href="/anti-patterns/hero-problem-solving/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-05-29T15:53:06+02:00">May 29, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/integration-points/" class="link black dim">
+        Integration Points
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="description">Description</h1>
+<p>Connections between systems always bring challenges and more complexity in the day to day operations. Systems are connected in order to share data or services and these can be critical for the reliability or even just the availability of your application.</p>
+<p>Integration also often brings an additional dependency in the architecture : the middleware which is responsible for implementing the actual integration, direct point to point integration between 2 applications is often seen as an integration anti-pattern and is avoided, API managers are used even in simple request/reply scenarios, as they come with a lot of added values for operations (monitoring, security, throlling, &hellip;).</p>
+    </div>
+    <a href="/anti-patterns/integration-points/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-05-29T15:53:06+02:00">May 29, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/normal-errors/" class="link black dim">
+        Normal Errors
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Observability is a key feature of a system as it allows to get an overview of the system status and detect if anything is going wrong inside the system. Reporting errors allows people operating the system to react as soon as possible thus avoiding the issue and its impact to grow.
+If a system is generating too many errors, likely not filtered nor sorted by severity, the team will be overloaded not knowing which ones are important to be dealt with.  The team will eventually end up considering them as normal errors, ignoring them. This will lead to hide and ignore serious errors which should be dealt with swiftly deteriorating quality of service.</p>
+    </div>
+    <a href="/anti-patterns/normal-errors/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-05-29T15:53:06+02:00">May 29, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/overkill-response/" class="link black dim">
+        Overkill Response
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>When an issue occurs, understanding the impact and defining the right action(s) to fix it, with no or minimum side effect, is key. The set of measures should be enough to fix the issue, but not too much to avoid any unnecessary impacts. Before doing something that will have a significant impact, take a moment to see if another action is possible with a more limited impact. It is possible to have a set of gradual measures that can be applied one after another until the issue is fixed. Not applying these “just right” practices is an “overkill response” impacting Quality of Service and it may also prevent the ability to diagnose root causes.</p>
+    </div>
+    <a href="/anti-patterns/overkill-response/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-05-29T15:53:06+02:00">May 29, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/reactive-operations/" class="link black dim">
+        Reactive Operations
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Naturally and historically, the actions of the operations support teams are triggered by an incident opened by a user. This implies that users are already in difficulty in their daily work.</p>
+<p>Like firefighting: the team is like firemen who are responding to a fire. They are only called in when it has started and has begun to grow in size by the time they intervene. The observation is that there is always damage (more or less impacting).</p>
+    </div>
+    <a href="/anti-patterns/reactive-operations/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-05-29T15:53:06+02:00">May 29, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/snowball-effect/" class="link black dim">
+        Snowball Effect
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Simple issues, if not managed quickly, can generate very complex situations that can be very hard to resolve.
+Systems must be designed to handle issues and making sure small issues are not going to generate bigger issues over time. Detecting issues and triggering self-healing or raising alerts is also a key feature of systems to avoid unmanageable situations.</p>
+<p>Example: a filesystem is full, which will cause errors on the storage of an application, which will cause incoherent state between the filesystem and the status in the database and erroneous data to be sent to other applications, which over time will be more and more complex to solve.</p>
+    </div>
+    <a href="/anti-patterns/snowball-effect/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-05-29T15:53:06+02:00">May 29, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/toil-routine/" class="link black dim">
+        Toil Routine
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>It is common that, over time, manual actions are taken to keep systems up and running (purges, checks, stop/starts, daily incidents, &hellip;.). Without any deliberate wish, all these routines settle and take more and more time on the team&rsquo;s workload. But habit makes them take hold.</p>
+<p>It is important to regularly take a step back to identify these no added value activities. The intervention of an external person acting as a sparring partner may help in the process. For each of them, an appropriate pattern will be found. Starting with the toil automation: time is precious.</p>
+    </div>
+    <a href="/anti-patterns/toil-routine/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-05-29T15:53:06+02:00">May 29, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/unmastered-systems/" class="link black dim">
+        Unmastered Systems
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>An unmastered system is a system on which nobody have a global view of all the elements that compose this system and how they interact with other systems.<br>
+With this lack of information, any evolutions are complex because it is difficult to know what will be the impact of these changes.<br>
+It will be also complicate or impossible to operate. This can arrive on old system or may be due to another anti-pattern : untracked operation</p>
+    </div>
+    <a href="/anti-patterns/unmastered-systems/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-05-29T15:52:26+02:00">May 29, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/unbalanced-capacities/" class="link black dim">
+        Unbalanced Capacities
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="description">Description</h1>
+<p>Your system consumes resources in order to execute the workload it is assigned. If these are not enough resources available to satisfy the demand, it is probable that the system will start becoming slower and slower, and this will introduce additional problems such as timeouts and blocked threads.</p>
+<h1 id="what-can-be-done">What can be done</h1>
+<p>Monitoring the Golden Signals (Saturation, Latency, Errors, Traffic) is a mandatory activity for any system. This will enable a better understanding of the usage and help in identifying trends and seasonality in usage patterns. Saturation is the key signal to understand how full the current infrastructure is and how this consumption evolves over time.</p>
+    </div>
+    <a href="/anti-patterns/unbalanced-capacities/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+		<ul class="pagination pagination-default">
+			<li class="page-item disabled">
+				<a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+			</li>
+		<li class="page-item disabled">
+			<a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+		</li>
+			<li class="page-item active">
+				<a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+			</li>
+			<li class="page-item">
+				<a href="/anti-patterns/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+			</li>
+		<li class="page-item">
+			<a href="/anti-patterns/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+		</li>
+			<li class="page-item">
+				<a href="/anti-patterns/page/2/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+			</li>
+		</ul></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

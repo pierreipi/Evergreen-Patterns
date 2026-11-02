@@ -12,7 +12,6 @@ description: My systems' architecture is continuously re-evaluated and adapted t
 ---
 
 ![Card for Continuous Architecture.](/cards/continuous-architecture.png)
-![My systems' architecture is continuously re-evaluated and adapted taking in account production feedback.](/images/continuous-architecture.webp)
 
 
 # Description

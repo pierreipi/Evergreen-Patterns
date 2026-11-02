@@ -13,7 +13,6 @@ description: "My system isolate functionalities to reduce the blast radius when 
 ---
 
 ![Card for Bulkheads.](/cards/bulkheads.png)
-![My system isolate functionalities to reduce the blast radius when problems occur.](/images/bulkheads.webp)
 
 # Description
 

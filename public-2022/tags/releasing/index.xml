@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Releasing on Evergreen Patterns (2022)</title>
+		<link>http://localhost:1313/tags/releasing/</link>
+		<description>Recent content in Releasing on Evergreen Patterns (2022)</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Thu, 14 Apr 2022 16:27:56 +0200</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/releasing/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Error Budget</title>
+				<link>http://localhost:1313/releasing/error-budget/</link>
+				<pubDate>Thu, 14 Apr 2022 16:27:56 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/error-budget/</guid>
+				<description>&lt;h1 id=&#34;definition&#34;&gt;Definition&lt;/h1&gt;&#xA;&lt;p&gt;Error Budgeting is an SRE practice that is very useful to help you find the proper pace and balance between developing new end user features or making your system more resilient and stable.&lt;/p&gt;&#xA;&lt;p&gt;When implementing SRE practices, you will start by identify the good service level indicators (SLIs) and associate them with objectives (SLOs) that will let you know at any time if the service you are delivering to your users is acceptable or not.&#xA;You can refer to the pattern &amp;ldquo;Defined Service Levels&amp;rdquo; for more information on SLI &amp;amp; SLOs.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Continuous Deployment</title>
+				<link>http://localhost:1313/releasing/continuous-deployment/</link>
+				<pubDate>Tue, 12 Apr 2022 17:46:08 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/continuous-deployment/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;Continuous Deployment consists in automatically deploying in production any software changes that go through the automated tests of the production pipeline. This helps ensuring consistent Quality of Service over time by mitigating change risks.&lt;/p&gt;&#xA;&lt;p&gt;Automating deployments is key to ensure fast and reproducible results. Deployment is triggered only if automated tests are successful.&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works&#34;&gt;How it works&lt;/h1&gt;&#xA;&lt;p&gt;Continuous Deployment is the ultimate step following Continuous Integration and Continuous Delivery.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Progressive Roll Out</title>
+				<link>http://localhost:1313/releasing/progressive-roll-out/</link>
+				<pubDate>Tue, 12 Apr 2022 17:46:08 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/progressive-roll-out/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;Traditionally, a new product or feature would be released in its full form, to every user at the exact same time. Using progressive roll-out, that same new product or feature would be released in smaller forms, to a few user groups at a time, and in stage intervals.&lt;/p&gt;&#xA;&lt;p&gt;Progressive roll-out let you break up “big bang” releases into smaller, more manageable increments thus reducing the risks and making roll-back easier.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

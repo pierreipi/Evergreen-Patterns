@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Evergreen Patterns on Evergreen Patterns (2022)</title>
+		<link>http://localhost:1313/</link>
+		<description>Recent content in Evergreen Patterns on Evergreen Patterns (2022)</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 29 May 2022 15:53:06 +0200</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Everything Works All The Time</title>
+				<link>http://localhost:1313/anti-patterns/everything-works-all-the-time/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/everything-works-all-the-time/</guid>
+				<description>&lt;p&gt;Systems are designed and built considering that everything will happen as planned and are therefore only considering the “happy path”:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;When they are waiting for files from other applications: they consider all those files will be received, and that they will all be on time and with the right format with no data issue&lt;/li&gt;&#xA;&lt;li&gt;When they are relying on external webservices, they expect them to be always available&lt;/li&gt;&#xA;&lt;li&gt;When they are sending data to a third-party system, they do not check the response to make sure everything is ok&lt;/li&gt;&#xA;&lt;li&gt;There is no (or not enough) troubleshooting information in the logs&lt;/li&gt;&#xA;&lt;li&gt;There is no timeout to interrupt abnormally long transactions&lt;/li&gt;&#xA;&lt;li&gt;Etc …&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;When designing and building a system, it is very important to imagine what could go wrong (both internally and externally) and how to handle it or at least how to minimize the impact and help troubleshoot. In some cases, there may be a degraded mode providing only the most critical functionalities.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Hero Problem Solving</title>
+				<link>http://localhost:1313/anti-patterns/hero-problem-solving/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/hero-problem-solving/</guid>
+				<description>&lt;p&gt;It is very convenient to have someone in the team who knows the system very well and is able to rapidly find the issue and solve it. When major incidents happen, they get involved very quickly to fix the issue, and they do. It is however very likely that no RCA will be performed to learn, capitalize and share the knowledge.&#xA;Of course, having people who know the system very well is a good thing, but it is important that the team does not rely on them to always fix issues, thus creating a dependency on them.&#xA;What will happen when those “heroes” will be on vacation or when they will leave the team?&#xA;Therefore, it is important to keep the documentation up to date and to coach team members so everyone can solve most issues and will not rely on a few members. Of course, at the beginning they may take a bit longer to fix an issue, but over time they will improve and solving issues will not depend on a few heroes. This will also highlight any loophole in the documentation that needs to be fixed.&#xA;Automating some tasks can also be very helpful: scripts that fix specific issues or do some checks and can be launched by many people will also reduce dependency on experts.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Integration Points</title>
+				<link>http://localhost:1313/anti-patterns/integration-points/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/integration-points/</guid>
+				<description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;&#xA;&lt;p&gt;Connections between systems always bring challenges and more complexity in the day to day operations. Systems are connected in order to share data or services and these can be critical for the reliability or even just the availability of your application.&lt;/p&gt;&#xA;&lt;p&gt;Integration also often brings an additional dependency in the architecture : the middleware which is responsible for implementing the actual integration, direct point to point integration between 2 applications is often seen as an integration anti-pattern and is avoided, API managers are used even in simple request/reply scenarios, as they come with a lot of added values for operations (monitoring, security, throlling, &amp;hellip;).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Normal Errors</title>
+				<link>http://localhost:1313/anti-patterns/normal-errors/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/normal-errors/</guid>
+				<description>&lt;p&gt;Observability is a key feature of a system as it allows to get an overview of the system status and detect if anything is going wrong inside the system. Reporting errors allows people operating the system to react as soon as possible thus avoiding the issue and its impact to grow.&#xA;If a system is generating too many errors, likely not filtered nor sorted by severity, the team will be overloaded not knowing which ones are important to be dealt with.  The team will eventually end up considering them as normal errors, ignoring them. This will lead to hide and ignore serious errors which should be dealt with swiftly deteriorating quality of service.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Overkill Response</title>
+				<link>http://localhost:1313/anti-patterns/overkill-response/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/overkill-response/</guid>
+				<description>&lt;p&gt;When an issue occurs, understanding the impact and defining the right action(s) to fix it, with no or minimum side effect, is key. The set of measures should be enough to fix the issue, but not too much to avoid any unnecessary impacts. Before doing something that will have a significant impact, take a moment to see if another action is possible with a more limited impact. It is possible to have a set of gradual measures that can be applied one after another until the issue is fixed. Not applying these “just right” practices is an “overkill response” impacting Quality of Service and it may also prevent the ability to diagnose root causes.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Reactive Operations</title>
+				<link>http://localhost:1313/anti-patterns/reactive-operations/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/reactive-operations/</guid>
+				<description>&lt;p&gt;Naturally and historically, the actions of the operations support teams are triggered by an incident opened by a user. This implies that users are already in difficulty in their daily work.&lt;/p&gt;&#xA;&lt;p&gt;Like firefighting: the team is like firemen who are responding to a fire. They are only called in when it has started and has begun to grow in size by the time they intervene. The observation is that there is always damage (more or less impacting).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Snowball Effect</title>
+				<link>http://localhost:1313/anti-patterns/snowball-effect/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/snowball-effect/</guid>
+				<description>&lt;p&gt;Simple issues, if not managed quickly, can generate very complex situations that can be very hard to resolve.&#xA;Systems must be designed to handle issues and making sure small issues are not going to generate bigger issues over time. Detecting issues and triggering self-healing or raising alerts is also a key feature of systems to avoid unmanageable situations.&lt;/p&gt;&#xA;&lt;p&gt;Example: a filesystem is full, which will cause errors on the storage of an application, which will cause incoherent state between the filesystem and the status in the database and erroneous data to be sent to other applications, which over time will be more and more complex to solve.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Toil Routine</title>
+				<link>http://localhost:1313/anti-patterns/toil-routine/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/toil-routine/</guid>
+				<description>&lt;p&gt;It is common that, over time, manual actions are taken to keep systems up and running (purges, checks, stop/starts, daily incidents, &amp;hellip;.). Without any deliberate wish, all these routines settle and take more and more time on the team&amp;rsquo;s workload. But habit makes them take hold.&lt;/p&gt;&#xA;&lt;p&gt;It is important to regularly take a step back to identify these no added value activities. The intervention of an external person acting as a sparring partner may help in the process. For each of them, an appropriate pattern will be found. Starting with the toil automation: time is precious.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Unmastered Systems</title>
+				<link>http://localhost:1313/anti-patterns/unmastered-systems/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/unmastered-systems/</guid>
+				<description>&lt;p&gt;An unmastered system is a system on which nobody have a global view of all the elements that compose this system and how they interact with other systems.&lt;br&gt;&#xA;With this lack of information, any evolutions are complex because it is difficult to know what will be the impact of these changes.&lt;br&gt;&#xA;It will be also complicate or impossible to operate. This can arrive on old system or may be due to another anti-pattern : untracked operation&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Unbalanced Capacities</title>
+				<link>http://localhost:1313/anti-patterns/unbalanced-capacities/</link>
+				<pubDate>Sun, 29 May 2022 15:52:26 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/unbalanced-capacities/</guid>
+				<description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;&#xA;&lt;p&gt;Your system consumes resources in order to execute the workload it is assigned. If these are not enough resources available to satisfy the demand, it is probable that the system will start becoming slower and slower, and this will introduce additional problems such as timeouts and blocked threads.&lt;/p&gt;&#xA;&lt;h1 id=&#34;what-can-be-done&#34;&gt;What can be done&lt;/h1&gt;&#xA;&lt;p&gt;Monitoring the Golden Signals (Saturation, Latency, Errors, Traffic) is a mandatory activity for any system. This will enable a better understanding of the usage and help in identifying trends and seasonality in usage patterns. Saturation is the key signal to understand how full the current infrastructure is and how this consumption evolves over time.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Users</title>
+				<link>http://localhost:1313/anti-patterns/users/</link>
+				<pubDate>Sun, 29 May 2022 15:32:37 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/users/</guid>
+				<description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;&#xA;&lt;p&gt;Users will use the system you build and design in ways you have never envisionned. It can have several reasons. Maybe they were not trained adequatly or maybe they are just very creative. Classical testing methods can not catch everything before the first go-live of your system.&lt;/p&gt;&#xA;&lt;h1 id=&#34;some-typical-examples&#34;&gt;Some typical examples&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Administrators of the application may have access to configuration features that can be dangerous if not understood properly. They can easily break the complete system by entering wrong settings.&lt;/li&gt;&#xA;&lt;li&gt;Users will sometimes double-click or even triple click links when they have been waiting for too long for a UI to respond.&lt;/li&gt;&#xA;&lt;li&gt;Users can create links in their browser to directly access specific pages which were not designed to be accessed directly.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;key-patterns-that-can-mitigate-this-problem&#34;&gt;Key patterns that can mitigate this problem&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Chaos Engineering&lt;/li&gt;&#xA;&lt;li&gt;Bulkheads&lt;/li&gt;&#xA;&lt;li&gt;Embrace Failures&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Rushing to Solution</title>
+				<link>http://localhost:1313/anti-patterns/rushing-to-solution/</link>
+				<pubDate>Sat, 28 May 2022 15:52:39 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/rushing-to-solution/</guid>
+				<description>&lt;p&gt;Whenever a failure occurs, restoring the service as soon as possible is of course important, but finding the root cause of the issue is also important to make sure we are doing the right actions and to prevent any reoccurrence. If the root cause can’t be found directly, then collecting the necessary elements to understand what has happened and find the root cause is key.&#xA;Collecting the elements does not mean doing the analysis: once the elements are secured, the service can be restored, and then the analysis can begin&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Bulkhead</title>
+				<link>http://localhost:1313/architecting/bulkhead/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/bulkhead/</guid>
+				<description>&lt;p&gt;For a truly resilient and self-healing architecture, you need isolation, external monitoring, and autonomous decision-making. Bulkhead pattern is one of the component of a truly resilient architecture, alongside with others like Circuit Breaker.&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works-&#34;&gt;How it works ?&lt;/h1&gt;&#xA;&lt;p&gt;Bulkheads consists in partitioning your system in order to protect it against cascading errors. Essentially, a bulkhead assigns limited resources to specific (groups of) clients, applications, operations, client endpoints, and so on.&lt;/p&gt;&#xA;&lt;h1 id=&#34;when-to-use-it-&#34;&gt;When to use it ?&lt;/h1&gt;&#xA;&lt;p&gt;Use this pattern to:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Decoupling Middleware</title>
+				<link>http://localhost:1313/architecting/decoupling-middleware/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/decoupling-middleware/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main purpose&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Tight coupling between distinct components is an operability issue.&lt;/li&gt;&#xA;&lt;li&gt;Synchronized communications propagates the SLA between components and cascades failures&lt;/li&gt;&#xA;&lt;li&gt;Integration Middlewares can help to break the propagation of the SLA, because they loose this coupling&lt;/li&gt;&#xA;&lt;li&gt;Middlewares can protect the left side of the communication from failures of the right side&lt;/li&gt;&#xA;&lt;li&gt;This only work when used in an asynchronous exchange&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;examples&#34;&gt;Examples&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/architecting/1-examples.png&#34; alt=&#34;1-Examples&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tight coupling&lt;/strong&gt; between A and B&#xA;if B breaks the A breaks&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Fail Fast</title>
+				<link>http://localhost:1313/architecting/fail-fast/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/fail-fast/</guid>
+				<description>&lt;h1 id=&#34;principle&#34;&gt;Principle&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Before starting a task ensure it has a chance to complete.&lt;/strong&gt;&#xA;&lt;em&gt;A chef won’t start to cook before he ensured he has all the ingredients&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Fail-fast systems are designed to stop operation rather than attempting to continue a possibly flawed process.&lt;/strong&gt;&#xA;&lt;em&gt;Eases debugging, improves visibility and understanding of root causes&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Implemented in circuit breakers&lt;/strong&gt;&#xA;&lt;em&gt;When a circuit status in « Open »: solicitations instantly fail&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;examples&#34;&gt;Examples&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Input validation&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;We validate user input before we submit to a server&lt;/li&gt;&#xA;&lt;li&gt;If required data is missing, we do not try to execute the process&lt;/li&gt;&#xA;&lt;li&gt;Applicable to any kind of validation (uploaded data files, logistic network description, …)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Especially before long running operations&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Do not generate a big data file before checking that the destination is online for instance&lt;/li&gt;&#xA;&lt;li&gt;…&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Handshaking &amp; Backpressure</title>
+				<link>http://localhost:1313/architecting/handshaking--backpressure/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/handshaking--backpressure/</guid>
+				<description>&lt;h1 id=&#34;handshaking&#34;&gt;Handshaking&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Ensure that the third party can &lt;strong&gt;accept our sollicitation before we do it&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Be proactive&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Requires &lt;strong&gt;automated Health checks&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;How can we inquire about the health of our target system ?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Enabler for proper &lt;strong&gt;throttling&lt;/strong&gt; and simple &lt;strong&gt;back pressure mechanism&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;throttling&#34;&gt;Throttling&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;In our context, Throttling refers to the action of &lt;strong&gt;deliberately limiting an activity&lt;/strong&gt; in order to &lt;strong&gt;remove the burden&lt;/strong&gt; on a third party system&lt;/li&gt;&#xA;&lt;li&gt;In order to throttle, we need to have a system whose level of activity can be &lt;strong&gt;dynamically controlled&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;In modern programming languages, we are using dynamic thread pools&#xA;&lt;ul&gt;&#xA;&lt;li&gt;They start with an initial size&lt;/li&gt;&#xA;&lt;li&gt;This size can be &lt;strong&gt;dynamically changed&lt;/strong&gt; during runtime&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/architecting/HB-throttling.png&#34; alt=&#34;HB-throttling.png&#34;&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Stateless</title>
+				<link>http://localhost:1313/architecting/stateless/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/stateless/</guid>
+				<description>&lt;p&gt;A &lt;strong&gt;stateless system&lt;/strong&gt; gets as input parameters &lt;strong&gt;all necessary data for its execution&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;These systems are simple and have interesting benefits:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;No need to maintain any user session&lt;/li&gt;&#xA;&lt;li&gt;No need for any kind of sequencing of invocations&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Steady State</title>
+				<link>http://localhost:1313/architecting/steady-state/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/steady-state/</guid>
+				<description>&lt;p&gt;A software is designed to work in defined « normal » conditions.&lt;/p&gt;&#xA;&lt;p&gt;For example:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;There are some free space in the file system&lt;/li&gt;&#xA;&lt;li&gt;Database can extend&lt;/li&gt;&#xA;&lt;li&gt;The volume of data inside the DB is in predefined limits&lt;/li&gt;&#xA;&lt;li&gt;…&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Every time the software consumes resources that are associated with these conditions, it has an automated way to release these resources.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Automated&lt;/strong&gt; is the most important word here&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works-&#34;&gt;How it works ?&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Every time a resource is consumed, there is an automated way to release this resource&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A system should be able to run indefinitely &lt;strong&gt;without any human intervention&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;When a purge of data is required after 3 years of production people will not remember to do it, and if they do it might be unclear on how to do it&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The system will be slower and slower&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/architecting/SteadyState-works.png&#34; alt=&#34;SteadyState-works&#34;&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Using Timeouts</title>
+				<link>http://localhost:1313/architecting/using-timeouts/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/using-timeouts/</guid>
+				<description>&lt;h1 id=&#34;when-use-it-&#34;&gt;When use it ?&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Every time a third party is involved&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Even in some of the internals of your own stack : when trying to get access to a resource : remote file system, connection to a DB, a queue, …&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Seems easy?&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Do we really know and manage the complete chain of timeouts from the user action trigger all the way to the database access or middleware interaction ?&lt;/li&gt;&#xA;&lt;li&gt;What are the good, correct, useful and realistic values to use ?&lt;/li&gt;&#xA;&lt;li&gt;Understanding what are the different types of timeouts of the chain, which component reports them, and how they are reported&lt;/li&gt;&#xA;&lt;li&gt;Different types of timeout are related to completely different types of issues and problems!&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;example&#34;&gt;Example&lt;/h1&gt;&#xA;&lt;p&gt;Sample problems and questions you need to answer:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Error Budget</title>
+				<link>http://localhost:1313/releasing/error-budget/</link>
+				<pubDate>Thu, 14 Apr 2022 16:27:56 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/error-budget/</guid>
+				<description>&lt;h1 id=&#34;definition&#34;&gt;Definition&lt;/h1&gt;&#xA;&lt;p&gt;Error Budgeting is an SRE practice that is very useful to help you find the proper pace and balance between developing new end user features or making your system more resilient and stable.&lt;/p&gt;&#xA;&lt;p&gt;When implementing SRE practices, you will start by identify the good service level indicators (SLIs) and associate them with objectives (SLOs) that will let you know at any time if the service you are delivering to your users is acceptable or not.&#xA;You can refer to the pattern &amp;ldquo;Defined Service Levels&amp;rdquo; for more information on SLI &amp;amp; SLOs.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Capacity Planning</title>
+				<link>http://localhost:1313/running/capacity-planning/</link>
+				<pubDate>Thu, 14 Apr 2022 08:48:43 +0200</pubDate>
+				<guid>http://localhost:1313/running/capacity-planning/</guid>
+				<description>&lt;h1 id=&#34;definition&#34;&gt;Definition&lt;/h1&gt;&#xA;&lt;p&gt;From Wikipedia, &amp;ldquo;Capacity planning is the process of determining the production capacity needed by an organization to meet changing demands for its products.&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;In the IT world, it is as a synonym for capacity management which is the term used by ITIL. IT capacity planning involves estimating the storage, computer hardware, software and connection infrastructure resources required over some future period of time.&lt;/p&gt;&#xA;&lt;p&gt;Capacity planning is very important for IT systems, because you wan&amp;rsquo;t to avoid facing capacity issues that will directly translate to outages. You want to monitor the resource usage of your systems in order to understand what are the trends.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Continuous Deployment</title>
+				<link>http://localhost:1313/releasing/continuous-deployment/</link>
+				<pubDate>Tue, 12 Apr 2022 17:46:08 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/continuous-deployment/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;Continuous Deployment consists in automatically deploying in production any software changes that go through the automated tests of the production pipeline. This helps ensuring consistent Quality of Service over time by mitigating change risks.&lt;/p&gt;&#xA;&lt;p&gt;Automating deployments is key to ensure fast and reproducible results. Deployment is triggered only if automated tests are successful.&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works&#34;&gt;How it works&lt;/h1&gt;&#xA;&lt;p&gt;Continuous Deployment is the ultimate step following Continuous Integration and Continuous Delivery.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Hypercare</title>
+				<link>http://localhost:1313/releasing/hypercare/</link>
+				<pubDate>Tue, 12 Apr 2022 17:46:08 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/hypercare/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;Hypercare is the period of time immediately following a system’s Go Live or major change where an elevated level of support is available to ensure a good quality of service.&lt;/p&gt;&#xA;&lt;h1 id=&#34;when-to-use-it&#34;&gt;When to use it?&lt;/h1&gt;&#xA;&lt;p&gt;The use of hypercare will depend on:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The level of risk of the change: even if extensive tests have been performed before a change, there is still some part of risk that something may not go as planned. This may be due to the system’s complexity, to some differences between test and production environments, to the coverage of the tests, …&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Progressive Roll Out</title>
+				<link>http://localhost:1313/releasing/progressive-roll-out/</link>
+				<pubDate>Tue, 12 Apr 2022 17:46:08 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/progressive-roll-out/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;Traditionally, a new product or feature would be released in its full form, to every user at the exact same time. Using progressive roll-out, that same new product or feature would be released in smaller forms, to a few user groups at a time, and in stage intervals.&lt;/p&gt;&#xA;&lt;p&gt;Progressive roll-out let you break up “big bang” releases into smaller, more manageable increments thus reducing the risks and making roll-back easier.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Continuous Knowledge</title>
+				<link>http://localhost:1313/running/continuous-knowledge/</link>
+				<pubDate>Tue, 12 Apr 2022 16:12:21 +0200</pubDate>
+				<guid>http://localhost:1313/running/continuous-knowledge/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;In order to operate our systems in an efficient way, it is crucial to capitalize and share knowledge continuously.&lt;/p&gt;&#xA;&lt;p&gt;A clear and shared documentation allows more people to be able to troubleshoot an issue and to do it faster without having to rely on experts.&lt;/p&gt;&#xA;&lt;p&gt;It is important to keep updating the documentation in time by adding or modifying content related to new or updated features, but also by removing content that is not relevant anymore or by documenting known issues and their workarounds (as long as they exist).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Continuous Operability</title>
+				<link>http://localhost:1313/running/continuous-operability/</link>
+				<pubDate>Tue, 12 Apr 2022 16:12:21 +0200</pubDate>
+				<guid>http://localhost:1313/running/continuous-operability/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Like every pattern it is key. But it has the particularity of ensuring that the approach and effort remains consistent &amp;amp; constant over time (duration being the key point)&lt;/p&gt;&#xA;&lt;p&gt;Systems are living. They evolve with the changes implemented, the users usage changes, the businesses evolve&amp;hellip;.&lt;/p&gt;&#xA;&lt;p&gt;It is a continuous loop that needs to be put in place&lt;/p&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;The effort of operability is a continuous work (not only during the building of a solution). The business evolves, the usage evolves, the systems evolve, the data evolve : all these changes require ensuring the right level of satisfaction.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Embrace Failures</title>
+				<link>http://localhost:1313/running/embrace-failures/</link>
+				<pubDate>Tue, 12 Apr 2022 16:12:08 +0200</pubDate>
+				<guid>http://localhost:1313/running/embrace-failures/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;The purpose of “Embrace Failure” is to take the opportunity of failures to understand, learn and improve.&lt;/p&gt;&#xA;&lt;p&gt;This can be done at every level: technical, process, organization.&lt;/p&gt;&#xA;&lt;h1 id=&#34;when-to-use-it&#34;&gt;When to use it?&lt;/h1&gt;&#xA;&lt;p&gt;Embrace Failure is a mindset and can be used in many areas and activities.&lt;/p&gt;&#xA;&lt;p&gt;An obvious area is the operations: Problem Management is an example of “Embrace Failure” which consists in analyzing incidents clusters or critical incidents in order to find the root cause and fix it.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Event Management</title>
+				<link>http://localhost:1313/running/event-management/</link>
+				<pubDate>Tue, 12 Apr 2022 16:11:58 +0200</pubDate>
+				<guid>http://localhost:1313/running/event-management/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;In order to always anticipate and solve situations before they disturb the users, event management is essential.&lt;/p&gt;&#xA;&lt;p&gt;To be clear : an event is simply a change to the state of a service, a threshold is breached, or configuration item (CI) that is significant to its management.&lt;/p&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;The objective is simple: to have the information as soon as possible to provide a solution as quickly as possible. It also avoids mobilizing teams to scan the monitoring screens.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Observability</title>
+				<link>http://localhost:1313/running/observability/</link>
+				<pubDate>Tue, 12 Apr 2022 16:11:50 +0200</pubDate>
+				<guid>http://localhost:1313/running/observability/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;The purpose of Observability is to better understand the system’s behavior and state to reduce both the time to detect an issue and the time to fix the issue. To be fully customer centric and secure the Quality of Service, the system to consider for observability, is the one supporting business capabilities or processes from an End to End and Full Stack perspective, including critical dependencies. Therfore, it is likely that the observability will factor in various applications, flows, components, and layers ranging from middlewares to infrastructure.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Self Healing</title>
+				<link>http://localhost:1313/running/self-healing/</link>
+				<pubDate>Tue, 12 Apr 2022 16:03:10 +0200</pubDate>
+				<guid>http://localhost:1313/running/self-healing/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;The main expectation is to provide an automatic resolution to an identified situation.&lt;/p&gt;&#xA;&lt;p&gt;The automation will be triggered by:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;an identified event (via monitoring or directly by the system).&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;a direct request from a user of the system (solicitation)The solution must allow to answer all or part of the situation as soon as possible. This automatic resolution must also be tracked in the tools to allow for analysis and reporting.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Andon</title>
+				<link>http://localhost:1313/running/andon/</link>
+				<pubDate>Tue, 12 Apr 2022 16:02:59 +0200</pubDate>
+				<guid>http://localhost:1313/running/andon/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Andon is a way of working in an organization through incident alerting, that makes Quality of Service the priority for all, all the time and supports a “Production First” culture. “Pulling the Andon cord” triggers the lightening of a “lamp where people go”, i.e., the incident. Anyone in the team is trusted and empowered to “pull the cord” to prevent an incident getting much worse. Team members take pride by contributing to the Quality of Service.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Collecting Evidence</title>
+				<link>http://localhost:1313/running/collecting-evidence/</link>
+				<pubDate>Tue, 12 Apr 2022 16:02:59 +0200</pubDate>
+				<guid>http://localhost:1313/running/collecting-evidence/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;The purpose of Collecting Evidence is to make sure to gather and preserve all elements (application logs, system logs, memory dumps, temporary files, …) that can be used to determine the root cause of an incident.&lt;/p&gt;&#xA;&lt;p&gt;Those elements must be collected as soon as possible to make sure that no manual action has been performed that could alter the system’s state. Ideally, the system itself should make it automatic or at least easy.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Traceability and Usage Monitoring</title>
+				<link>http://localhost:1313/running/traceability-and-usage-monitoring/</link>
+				<pubDate>Tue, 12 Apr 2022 16:02:59 +0200</pubDate>
+				<guid>http://localhost:1313/running/traceability-and-usage-monitoring/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;The goal of Traceability &amp;amp; Usage Monitoring is to better understand the usage of the application: when it is used, by which users (which types of users, from which locations ,…), what functions or part of the application are used, how is the application used, …&lt;/p&gt;&#xA;&lt;p&gt;There are many reasons to do so:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;To follow up the ramp-up and adoption of a new application&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;To know when the application is least used to better plan maintenance or changes&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Up To Date Inventory</title>
+				<link>http://localhost:1313/running/up-to-date-inventory/</link>
+				<pubDate>Tue, 12 Apr 2022 16:02:59 +0200</pubDate>
+				<guid>http://localhost:1313/running/up-to-date-inventory/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;IT assets are both expensive to acquire and maintain. As a result, asset management plays a critical role in helping teams ensure the efficient use of resources (availability, up to date, etc.), while supporting the needs of users and business functions.&lt;/p&gt;&#xA;&lt;p&gt;This is something that is required for many actions, such as&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Incident anticipation, fast detection and diagnosis&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Change impact assessment&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Obsolescence management&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Security vulnerability analysis&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Technical evolutions and modernization management&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Time Is Precious</title>
+				<link>http://localhost:1313/running/time-is-precious/</link>
+				<pubDate>Tue, 12 Apr 2022 16:02:45 +0200</pubDate>
+				<guid>http://localhost:1313/running/time-is-precious/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Capacity is not unlimited. We need to use the best of the teams&amp;rsquo; skills. We must ensure that the workload is allocated to the most valuable activities.&lt;/p&gt;&#xA;&lt;p&gt;In activable solutions, all the automation portfolio takes a major position. But other patterns contribute to this balance (observability, Continuous Knowledge,&amp;hellip;).&lt;/p&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;We cannot speak of a gain but of gains.&lt;/p&gt;&#xA;&lt;p&gt;This covers several dimensions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;First of all, the comfort of the teams in order to facilitate the access to knowledge, or the suppression of repetitive tasks.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Smart Assistance</title>
+				<link>http://localhost:1313/running/smart-assistance/</link>
+				<pubDate>Tue, 12 Apr 2022 15:59:23 +0200</pubDate>
+				<guid>http://localhost:1313/running/smart-assistance/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;The notion of Smart Assistance includes all the technologies that allow to :&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Digitize the relationship with users.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Allow to bring autonomy by an automatic response to the user.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;The gain to look for through these new use cases are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;An improvement in the Quality of service&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;A contextualized, enhanced and in the end, improved user support experience&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;A stronger autonomy of users in their work.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Reduction of the support teams&amp;rsquo; workload&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Smoke Testing</title>
+				<link>http://localhost:1313/releasing/smoke-testing/</link>
+				<pubDate>Tue, 12 Apr 2022 15:59:09 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/smoke-testing/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;An origin of the term smoke test comes from electronic hardware testing. If you see smoke coming from the board when you plug in a new board and turn on the power, then you can turn off the power and stop the test.&lt;/p&gt;&#xA;&lt;p&gt;Another possible origin of the term comes from the plumbing industry: smoke is created and blown into tubing, and then the pipes are examined to make sure no smoke is escaping to verify that there is no leak.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Continuous Integration</title>
+				<link>http://localhost:1313/building/continuous-integration/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:49 +0200</pubDate>
+				<guid>http://localhost:1313/building/continuous-integration/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Continuous Integration (CI) is a software development practice, where automated builds can be triggered by some sort of event, such as a code check-in or merge.&#xA;It is part of the Continuous Integration/Continuous Deployment pipeline practice.&lt;/p&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;When you see continuous in a pattern name, one of the idea behind it is that by doing an action continuously, therefore by small steps, you will be able to automate it and it will make life dramatically easier.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Error Categorization</title>
+				<link>http://localhost:1313/building/error-categorization/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:49 +0200</pubDate>
+				<guid>http://localhost:1313/building/error-categorization/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Error categorization is the mandatory first enabler for Application logging and then monitoring&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/building/error_categorization.png&#34; alt=&#34;Error Categorization&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;goal&#34;&gt;GOAL&lt;/h1&gt;&#xA;&lt;p&gt;Define standard error severities and give them meaning.&#xA;A meaningful Error Categorization will facilitate doing good and useful application logging.&lt;/p&gt;&#xA;&lt;p&gt;It enables communication between Build and Run teams. They need to agree on standard error severities and its consequences, for example if I log an error message at a « Fatal » level, someone may be on-call and woken up in the middle of the night&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Production Aware Testing</title>
+				<link>http://localhost:1313/building/production-aware-testing/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:49 +0200</pubDate>
+				<guid>http://localhost:1313/building/production-aware-testing/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Before the production deployment we need the possibility to conduct tests on an environment that closely mimicks our real-world production.&#xA;The goal is to test codes, builds, and updates to ensure quality under a production-like environment.&lt;/p&gt;&#xA;&lt;p&gt;Only because of that level of sameness, we will be able to conduct test that encompass real-world user journeys&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works&#34;&gt;HOW IT WORKS?&lt;/h1&gt;&#xA;&lt;p&gt;To be able to do that, everything in the environments should be as close as possible to an exact copy of the production environment.&#xA;Software, hardware, architecture and configuration should be the same as production environments and when we say the same we mean same components but also the same versions of components, same level of patches ,etc…..&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Reporting System Health State</title>
+				<link>http://localhost:1313/building/reporting-system-health-state/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:49 +0200</pubDate>
+				<guid>http://localhost:1313/building/reporting-system-health-state/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;All critical aspects of your product are monitored in real-time to ensure that potential issues are detected as soon as possible. System health includes Disk Space, Services, Performance, Scheduled Tasks, Software/Hardware and more.&lt;/p&gt;&#xA;&lt;h1 id=&#34;what-need-to-be-done&#34;&gt;WHAT NEED TO BE DONE&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The connectivity to every dependent system is checked in the health check&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;State of all major components of the application architecture are evaluated&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;All related file systems free space is evaluated as part of the check&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Traceability Of Data Flows</title>
+				<link>http://localhost:1313/building/traceability-of-data-flows/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:49 +0200</pubDate>
+				<guid>http://localhost:1313/building/traceability-of-data-flows/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Applications of our information systems exchange data, all the time. Referential data is pushed from data referential to transactional applications. Transactional data are exchanged between these applications and pushed to BI systems for analytics requirements.&lt;/p&gt;&#xA;&lt;p&gt;Our business relies more and more on this data to be always available and as quickly as possible to make the best decisions. Our customers also expect data to be communicated to them in a timely and consistent fashion.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Chaos Engineering</title>
+				<link>http://localhost:1313/building/chaos-engineering/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:34 +0200</pubDate>
+				<guid>http://localhost:1313/building/chaos-engineering/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Chaos engineering is the process of experimenting on a system to ensure that it can withstand unexpected disruptions.&lt;br&gt;&#xA;It relies on concepts underlying chaos theory, which focus on random and unpredictable behavior.&lt;/p&gt;&#xA;&lt;p&gt;This is a modern approach to testing and validating your application architectures, it will help all teams from dev to support to have a better understanding of the product and be more confident that the application will be able to handle faults gracefully.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Application Logging</title>
+				<link>http://localhost:1313/building/application-logging/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:25 +0200</pubDate>
+				<guid>http://localhost:1313/building/application-logging/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Application logging is the process of saving application events. With this information in hand, the team can assess threats and analyze errors before they disrupt the service.&#xA;They are the most helpful and reliable evidence to conduct a proper root cause analysis of an incident.&lt;/p&gt;&#xA;&lt;p&gt;Application logs are not used just for averting operational problems, but also to provide business intelligence through data mining.&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works&#34;&gt;HOW IT WORKS?&lt;/h1&gt;&#xA;&lt;p&gt;In order help you and standardize the process of logging, you should use frameworks like for the Java platform. Several Java logging frameworks exist.  Log4J is one of them.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Accounting for Internal Failures</title>
+				<link>http://localhost:1313/building/accounting-for-internal-failures/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:14 +0200</pubDate>
+				<guid>http://localhost:1313/building/accounting-for-internal-failures/</guid>
+				<description>&lt;h1 id=&#34;definition&#34;&gt;DEFINITION&lt;/h1&gt;&#xA;&lt;p&gt;In our context we talk about internal failure as opposed to third-party failure. By internal we mean all the services, components, application that are under the responsibility of the product team.&lt;/p&gt;&#xA;&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;A common risk is to believe things will go well all the time, and therefore design and implement only the “happy path”, meaning that we think all the components will always be available, integration process will never fail, etc …&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Accounting for Third Party Failures</title>
+				<link>http://localhost:1313/building/accounting-for-third-party-failures/</link>
+				<pubDate>Tue, 12 Apr 2022 15:53:33 +0200</pubDate>
+				<guid>http://localhost:1313/building/accounting-for-third-party-failures/</guid>
+				<description>&lt;h1 id=&#34;definition&#34;&gt;DEFINITION&lt;/h1&gt;&#xA;&lt;p&gt;In our context a third-party is a product, a service or an application that is not under the responsibility of the product team.&lt;/p&gt;&#xA;&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;A common risk is to believe things will go well all the time, and therefore design and implement only the “happy path”, meaning that we think all the components will always be available, integration process will never fail, etc …&lt;/p&gt;&#xA;&lt;p&gt;We must do the exact opposite, imagine the worst cases, thinking about what can happen, go wrong and how it will be a non-event for us.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Reliable Service Exposition</title>
+				<link>http://localhost:1313/architecting/reliable-service-exposition/</link>
+				<pubDate>Tue, 12 Apr 2022 15:52:31 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/reliable-service-exposition/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;When exposing services that will be consumed by other systems and applications, it is important to implement several key mechanisms to ensure this exposition is as robust, secure, and resilient as possible.&lt;/p&gt;&#xA;&lt;p&gt;You want your service exposition to be documented, secured and auditable (must log all invocations).&lt;/p&gt;&#xA;&lt;h1 id=&#34;what-to-do&#34;&gt;WHAT TO DO&lt;/h1&gt;&#xA;&lt;p&gt;Do not reinvent the wheel&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Use standard protocols that are supported by a large set of tools and ensure a good testability&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Reliable Data Exchanges</title>
+				<link>http://localhost:1313/architecting/reliable-data-exchanges/</link>
+				<pubDate>Tue, 12 Apr 2022 15:52:20 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/reliable-data-exchanges/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;Our different IT systems and applications exchange data, all the time.&lt;/p&gt;&#xA;&lt;p&gt;We know that these data exchanges can be a major source of incidents and problems in our systems. There are numerous tools and architectures that aim to make these data exchanges as resilient as possible. Even with these precautions in place, everything fails eventually, so we want to ensure that our data flows and exchanges are easy to diagnose and analyze.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Defined Service Levels</title>
+				<link>http://localhost:1313/architecting/defined-service-levels/</link>
+				<pubDate>Tue, 12 Apr 2022 15:52:02 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/defined-service-levels/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;When trying to define whether your systems offer a good quality of service, it is important to define what “Good” means in your own specific context. Observable Service Levels should be defined and measured so that you can know very confidently at any time if your systems are delivering a good experience to their businesses. Defining which are the good service levels is not an easy task and identifying which metrics must be captured to measure them must be done early enough.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Big Bang Deployment</title>
+				<link>http://localhost:1313/anti-patterns/big-bang-deployment/</link>
+				<pubDate>Tue, 12 Apr 2022 15:51:36 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/big-bang-deployment/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;For bad or good reasons, because we are afraid to apply changes on a product or a solution that is not fully under control, or because we are working in a waterfall mode, we decide to move several months of workload in production all at once. This is what we call a “Big bang” deployment.&lt;br&gt;&#xA;This is the opposite of what we promote most of the time: continuous integration / continuous deployment (CI/CD) because “big bang” deployments embark a lot of risks and almost never go well.&lt;br&gt;&#xA;There is pressure on feature’s delivery, therefore these big releases just tend to get bigger, because people know that the next one will be in a long time. Finding move to production slots becomes a headache because the associated outage is very long. At the end of the day, with so much change at once, the stability often suffers.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Cascading Failures</title>
+				<link>http://localhost:1313/anti-patterns/cascading-failures/</link>
+				<pubDate>Tue, 12 Apr 2022 15:51:36 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/cascading-failures/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;A cascading failure happens when an incident in one part of a given system triggers failures in other parts inside it, or in interconnected systems, with no possibility to stop the propagation. This is causing a domino effect that can have a huge impact.&#xA;One of the most famous patterns in order to avoid a cascading failure is the “Circuit braker”&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Continuous Architecture</title>
+				<link>http://localhost:1313/architecting/continuous-architecture/</link>
+				<pubDate>Tue, 12 Apr 2022 15:51:36 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/continuous-architecture/</guid>
+				<description>&lt;h1 id=&#34;definition&#34;&gt;DEFINITION&lt;/h1&gt;&#xA;&lt;p&gt;&amp;ldquo;Yesterday’s architecture methodologies and processes will not deliver future solutions&amp;rdquo; is Continuous Architecture credo. This initiative was launched at Michelin in 2019 and is the umbrella project for the transformation of the architect’s role and the associated rituals and practices.&lt;/p&gt;&#xA;&lt;p&gt;Operability has a special place in this initiative as a modern Architect responsibility does not end when a product is shipped. Special care needs to be taken to ensure that the product architects design will gracefully handle production hazards, and that architecture runways will be also populated with items that come from production feedbacks and learnings. It becomes mandatory to have a &lt;strong&gt;feedback loop&lt;/strong&gt; in place so that Architects are well connected to the production.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>SLA Inversion</title>
+				<link>http://localhost:1313/anti-patterns/sla-inversion/</link>
+				<pubDate>Tue, 12 Apr 2022 15:51:36 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/sla-inversion/</guid>
+				<description>&lt;h1 id=&#34;description&#34;&gt;DESCRIPTION&lt;/h1&gt;&#xA;&lt;p&gt;An IT system has all kind of dependencies which it requires to deliver the service to its end users.&#xA;Typical examples are authentication and storage services but there are also some core low level facilities such as DNS servers and load balancers which are required for the system to function properly.&#xA;All of these dependencies will have an impact on the availability of the system when they go down (and they will!).&#xA;Depending on how the system is coupled with the particular dependency that is failing, the impact may be more or less significant.&#xA;If the system is highly coupled with the dependency then this failure may completely bring the entire system down. You want to avoid your system being highly coupled with dependencies which do not implement enough high availability measures for your requirements.&#xA;Also the blast-radius of a failure in one of your dependencies will be different, for example a printing server failure will probably only impact features that are related to printing whereas an authentication service failure will make your entire application unavailable.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Snowflake</title>
+				<link>http://localhost:1313/anti-patterns/snowflake/</link>
+				<pubDate>Tue, 12 Apr 2022 15:51:36 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/snowflake/</guid>
+				<description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;&#xA;&lt;p&gt;When using &amp;ldquo;mutable&amp;rdquo; infrastructure, servers have a long lifespan. They are provisionned once, and during their lifetime they will go through numerous changes.&#xA;The nature of these changes is very diverse, some are very simple modifications of configuration, some are upgrades of some applications services, some are OS kernel upgrades.&lt;/p&gt;&#xA;&lt;p&gt;After a while, a server becomes more and more risky to modify, it becomes a real challenge to keep track of all past changes, and it is nearly impossible to explain why a specific setting was modified and when.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Untracked Operations</title>
+				<link>http://localhost:1313/anti-patterns/untracked-operations/</link>
+				<pubDate>Tue, 12 Apr 2022 15:51:36 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/untracked-operations/</guid>
+				<description>&lt;p&gt;Even if sometimes it seems to be more efficient to modify directly configuration or code directly on the system itself for a long term perspective this is always a bad idea. This applies not only for the code but also for data , configuration files , etc…&#xA;Whatever the reason, if we don’t know what have been done , for which reason , when , by whom at the end it will be impossible to maintaining consistency of the solution.&lt;br&gt;&#xA;More globally we are talking about configuration management , there is tool that can help you to make changes and deployments faster, removing the potential for human error, while making system management auditable, predictable and scalable.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Immutability</title>
+				<link>http://localhost:1313/releasing/immutability/</link>
+				<pubDate>Tue, 12 Apr 2022 12:28:04 +0200</pubDate>
+				<guid>http://localhost:1313/releasing/immutability/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;MAIN PURPOSE&lt;/h1&gt;&#xA;&lt;p&gt;In a traditional server infrastructure, servers are continually updated and modified in place. Teams working with this kind of infrastructure log into their servers to manually upgrade or downgrade components, modify configuration files, and deploy new applications directly. These servers are mutable; they are changed after they’re created.&lt;/p&gt;&#xA;&lt;p&gt;Some  typical problems of mutable infrastructures are the following:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Each server has a different configuration, often called ‘configuration drift’.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Technical issues which are hard to find or reproduce&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Circuit Breaker</title>
+				<link>http://localhost:1313/architecting/circuit-breaker/</link>
+				<pubDate>Tue, 12 Apr 2022 12:27:55 +0200</pubDate>
+				<guid>http://localhost:1313/architecting/circuit-breaker/</guid>
+				<description>&lt;p&gt;The Circuit Breaker is a very popular resilience pattern to interconnect systems synchronously.&#xA;It protects the caller from failures of the invoked service.&lt;/p&gt;&#xA;&lt;p&gt;Useful reading: [https://www.martinfowler.com/bliki/CircuitBreaker.html](Martin Fowler article)&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-it-works-&#34;&gt;How it works ?&lt;/h1&gt;&#xA;&lt;p&gt;A Circuit breaker has three states:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Closed (initial default state)&lt;/li&gt;&#xA;&lt;li&gt;Opened&lt;/li&gt;&#xA;&lt;li&gt;Half-opened&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Initially it will be closed. Whenever errors are encountered, it will switch the the &amp;ldquo;Opened&amp;rdquo; state. After some time, it will go back to the &amp;ldquo;Half-Opened&amp;rdquo; state automatically. In the &amp;ldquo;Half-Opened&amp;rdquo; state, the operation will be tried, and if it fails the circuit will automatically switch back to the &amp;ldquo;Opened&amp;rdquo; state, if it is successfull it will switch to &amp;ldquo;Closed&amp;rdquo;.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>http://localhost:1313/practices--cases/capacity-planning-on-azure/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/practices--cases/capacity-planning-on-azure/</guid>
+				<description>&lt;h1 id=&#34;generic-capacity-planing-steps&#34;&gt;Generic Capacity Planing Steps&lt;/h1&gt;&#xA;&lt;p&gt;We consider Capacity Planning as activities to estimate future needs of capacities of resources and define a actionable plan to guarantee the supply at committed time.&lt;/p&gt;&#xA;&lt;p&gt;Resources here include both IT hardware, software and services.&lt;/p&gt;&#xA;&lt;p&gt;Capacity Planning is an art of balance. You&amp;rsquo;d ensure when required, you have the right resources with just right amounts. We want to avoid 2 situations&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Over-Capacity, where too many resources are provided or used for nothing, which is waste.&lt;/li&gt;&#xA;&lt;li&gt;Under-Capacity, where not rnough resources are available to meet the requirements, which will casue system performance issue and ruin the user experiences and impact business results.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Depending on nature of IT systems and priorities of company, one risk could be taken more serious than another. For example, if cost saving is more critical, Over-Capacity should be more carefully watched and handled.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

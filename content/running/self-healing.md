@@ -14,7 +14,6 @@ tags:
 description: "My systems react automatically to an event or make users autonomous to minimize request to operations."
 ---
 
-![My systems react automatically to an event or make users autonomous to minimize request to operations.](/images/self-healing.webp)
 
 # Description
 A Self-Healing system is designed to automatically detect and correct faults, to ensure the system continues to operate with minimal disruption, and to reduce the need for human intervention. This capability is crucial in maintaining high availability, performance, and reliability of software systems.

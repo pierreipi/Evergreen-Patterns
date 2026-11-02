@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Accounting for Third Party Failures | Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="My systems are designed to gracefully handle failures in third parties">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/building/accounting-for-third-party-failures/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/building/accounting-for-third-party-failures/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Accounting for Third Party Failures">
+	<meta property="og:description" content="My systems are designed to gracefully handle failures in third parties">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="building">
+		<meta property="article:published_time" content="2022-04-12T15:53:33+02:00">
+		<meta property="article:modified_time" content="2022-04-12T15:53:33+02:00">
+		<meta property="article:tag" content="Building">
+
+	<meta itemprop="name" content="Accounting for Third Party Failures">
+	<meta itemprop="description" content="My systems are designed to gracefully handle failures in third parties">
+	<meta itemprop="datePublished" content="2022-04-12T15:53:33+02:00">
+	<meta itemprop="dateModified" content="2022-04-12T15:53:33+02:00">
+	<meta itemprop="wordCount" content="261">
+	<meta itemprop="keywords" content="Building">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Accounting for Third Party Failures">
+	<meta name="twitter:description" content="My systems are designed to gracefully handle failures in third parties">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-accounting-for-third-party-failures">
+   
+  
+
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+
+  <article class="page-accounting-for-third-party-failures flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    <a class="link dim" href="http://localhost:1313/building/">Building Systems</a>
+  </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Accounting for Third Party Failures</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-04-12T15:53:33+02:00">April 12, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><h1 id="definition">DEFINITION</h1>
+<p>In our context a third-party is a product, a service or an application that is not under the responsibility of the product team.</p>
+<h1 id="main-purpose">MAIN PURPOSE</h1>
+<p>A common risk is to believe things will go well all the time, and therefore design and implement only the “happy path”, meaning that we think all the components will always be available, integration process will never fail, etc …</p>
+<p>We must do the exact opposite, imagine the worst cases, thinking about what can happen, go wrong and how it will be a non-event for us.</p>
+<p><img src="/images/building/3_party_failures.png" alt="1"></p>
+<h1 id="what-to-do">WHAT TO DO</h1>
+<p>Systematically try to proactively identify where and how a system might fail. What could go wrong, why would the failure happen.</p>
+<p>Use Fuses</p>
+<ul>
+<li>Fuses : When a threshold or error condition is reached, the fuse blows and halts processing</li>
+</ul>
+<p>and Fallbacks</p>
+<ul>
+<li>
+<p>The business users must be involved in deciding what must be done as an alternative scenario</p>
+</li>
+<li>
+<p>Is a service degradation possible?</p>
+</li>
+<li>
+<p>Provide the result of the last successful invocation, stop the processing, display an error, …</p>
+</li>
+</ul>
+<h1 id="best-practices">BEST PRACTICES</h1>
+<ul>
+<li>
+<p>Thresholds are in place for every retriable functionality</p>
+</li>
+<li>
+<p>The state of all the « fuses » in the system can be queried</p>
+</li>
+<li>
+<p>A fuse goes back to its normal state automatically or with a simple command</p>
+</li>
+<li>
+<p>Timeouts are in place, and their value is known in advance, for every synchronous communication with a third-party system</p>
+</li>
+<li>
+<p>Failures are not cascaded</p>
+</li>
+<li>
+<p>Implement Fallbacks and Graceful degradation</p>
+</li>
+</ul>
+<h1 id="examples">EXAMPLES</h1>
+<p><a href="https://github.com/resilience4j/resilience4j">Resilience4J</a></p>
+<ul>
+<li>
+<p>Open-Source Java Library that implements a lot of fault tolerence patterns</p>
+</li>
+<li>
+<p>Retry</p>
+</li>
+<li>
+<p>Circuit Breaker</p>
+</li>
+<li>
+<p>Rate Limiter</p>
+</li>
+<li>
+<p>Time Limiter</p>
+</li>
+<li>
+<p>Bulkhead</p>
+</li>
+<li>
+<p>Cache</p>
+</li>
+<li>
+<p>Fallback</p>
+</li>
+</ul>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/categories/building/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Building</a>
+   </li>
+  
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/building/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Building</a>
+   </li>
+  
+</ul>
+
+      
+    </div></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

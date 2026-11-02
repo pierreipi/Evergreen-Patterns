@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Categories on Evergreen Patterns (2022)</title>
+		<link>http://localhost:1313/categories/</link>
+		<description>Recent content in Categories on Evergreen Patterns (2022)</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 18 Apr 2022 17:53:35 +0200</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Architecting</title>
+				<link>http://localhost:1313/categories/architecting/</link>
+				<pubDate>Mon, 18 Apr 2022 17:53:35 +0200</pubDate>
+				<guid>http://localhost:1313/categories/architecting/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Releasing</title>
+				<link>http://localhost:1313/categories/releasing/</link>
+				<pubDate>Thu, 14 Apr 2022 16:27:56 +0200</pubDate>
+				<guid>http://localhost:1313/categories/releasing/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Running</title>
+				<link>http://localhost:1313/categories/running/</link>
+				<pubDate>Thu, 14 Apr 2022 08:48:43 +0200</pubDate>
+				<guid>http://localhost:1313/categories/running/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Building</title>
+				<link>http://localhost:1313/categories/building/</link>
+				<pubDate>Tue, 12 Apr 2022 15:54:49 +0200</pubDate>
+				<guid>http://localhost:1313/categories/building/</guid>
+				<description></description>
+			</item>
+	</channel>
+</rss>

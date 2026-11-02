@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Continuous Operability | Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="My team continually improves its operations based on system health, root cause analysis, and knowledge">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/running/continuous-operability/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/running/continuous-operability/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Continuous Operability">
+	<meta property="og:description" content="My team continually improves its operations based on system health, root cause analysis, and knowledge">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="running">
+		<meta property="article:published_time" content="2022-04-12T16:12:21+02:00">
+		<meta property="article:modified_time" content="2022-04-12T16:12:21+02:00">
+		<meta property="article:tag" content="Running">
+
+	<meta itemprop="name" content="Continuous Operability">
+	<meta itemprop="description" content="My team continually improves its operations based on system health, root cause analysis, and knowledge">
+	<meta itemprop="datePublished" content="2022-04-12T16:12:21+02:00">
+	<meta itemprop="dateModified" content="2022-04-12T16:12:21+02:00">
+	<meta itemprop="wordCount" content="364">
+	<meta itemprop="keywords" content="Running">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Continuous Operability">
+	<meta name="twitter:description" content="My team continually improves its operations based on system health, root cause analysis, and knowledge">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-continuous-operability">
+   
+  
+
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+
+  <article class="page-continuous-operability flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    <a class="link dim" href="http://localhost:1313/running/">Running Systems</a>
+  </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Continuous Operability</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-04-12T16:12:21+02:00">April 12, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="main-purpose">MAIN PURPOSE</h1>
+<p>Like every pattern it is key. But it has the particularity of ensuring that the approach and effort remains consistent &amp; constant over time (duration being the key point)</p>
+<p>Systems are living. They evolve with the changes implemented, the users usage changes, the businesses evolve&hellip;.</p>
+<p>It is a continuous loop that needs to be put in place</p>
+<h1 id="goal">GOAL</h1>
+<p>The effort of operability is a continuous work (not only during the building of a solution). The business evolves, the usage evolves, the systems evolve, the data evolve : all these changes require ensuring the right level of satisfaction.</p>
+<p>Take a step back at regular frequencies (each month ideally or at least every year).</p>
+<p>Take the time to understand the situations encountered, the difficulties faced. Continue to identify the levers that can be activated to</p>
+<p>And above all, take the time to prepare, to anticipate the future by making sure that new or missing drivers are available in time.</p>
+<p>Without this regular work, performance can deteriorate, components can become obsolete, maintenance more important,&hellip;</p>
+<h1 id="what-need-to-be-done">WHAT NEED TO BE DONE</h1>
+<p>The practice is to organize regular meetings with all the stakeholders to enable them to take a step back.</p>
+<p>In order to achieve this, the team must have:</p>
+<ul>
+<li>
+<p>The events of the period, how they were handled (RCA reviews)</p>
+</li>
+<li>
+<p>The capacity plan for the coming period.</p>
+</li>
+<li>
+<p>The challenges of the teams</p>
+</li>
+<li>
+<p>Feedback from users</p>
+</li>
+<li>
+<p>Operation figures</p>
+</li>
+<li>
+<p>Additional ad hoc studies can be added</p>
+</li>
+</ul>
+<p>All of these elements should make it possible to establish an action plan to improve the operability of the solutions. This may concern the solution itself or the way the support is implemented. The whole pattern set can be used</p>
+<h1 id="examples">EXAMPLES</h1>
+<p>During a moment of step back, the team analyzes the various incidents identified through the implementation of the observability pattern. Several distinct cases are then isolated as:</p>
+<p>A cluster concerning flows with errors when sending data to the EDI system =&gt; The team decide to implement the Circuit Breaker pattern</p>
+<p>A cluster concerning data errors =&gt; the Event and Time is Precious pattern is then set up for the treatment of this case until the problem is implemented.</p>
+<h1 id="real-michelin-world">REAL MICHELIN WORLD</h1>
+<p>Ex:</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/categories/running/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Running</a>
+   </li>
+  
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/running/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Running</a>
+   </li>
+  
+</ul>
+
+      
+    </div><aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/running/continuous-knowledge/">Continuous Knowledge</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/running/embrace-failures/">Embrace Failures</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/running/event-management/">Event Management</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

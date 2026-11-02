@@ -13,7 +13,6 @@ description: "Some operations done on my production systems are not tracked or a
 ---
 
 ![Card for Untracked Operations.](/cards/untracked-operations.png)
-![Some operations done on my production systems are not tracked or auditable.](/images/untracked-operations.webp)
 
 # Description
 

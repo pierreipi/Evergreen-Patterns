@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Anti-patterns | Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Common traps that the Evergreen patterns help to avoid.">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+    
+      <link href="/anti-patterns/index.xml" rel="alternate" type="application/rss+xml" title="Evergreen Patterns (2022)" />
+      <link href="/anti-patterns/index.xml" rel="feed" type="application/rss+xml" title="Evergreen Patterns (2022)" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/anti-patterns/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/anti-patterns/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Anti-patterns">
+	<meta property="og:description" content="Common traps that the Evergreen patterns help to avoid.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Anti-patterns">
+	<meta itemprop="description" content="Common traps that the Evergreen patterns help to avoid.">
+	<meta itemprop="datePublished" content="2022-05-29T15:53:06+02:00">
+	<meta itemprop="dateModified" content="2022-05-29T15:53:06+02:00">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Anti-patterns">
+	<meta name="twitter:description" content="Common traps that the Evergreen patterns help to avoid.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-section is-section">
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Anti-patterns
+        </h1>
+        
+          <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+            Common traps that the Evergreen patterns help to avoid.
+          </h2>
+        
+      </div>
+    </div>
+  </header>
+
+<main class="pb7" role="main">
+  
+  
+
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-05-29T15:32:37+02:00">May 29, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/users/" class="link black dim">
+        Users
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="description">Description</h1>
+<p>Users will use the system you build and design in ways you have never envisionned. It can have several reasons. Maybe they were not trained adequatly or maybe they are just very creative. Classical testing methods can not catch everything before the first go-live of your system.</p>
+<h1 id="some-typical-examples">Some typical examples</h1>
+<ul>
+<li>Administrators of the application may have access to configuration features that can be dangerous if not understood properly. They can easily break the complete system by entering wrong settings.</li>
+<li>Users will sometimes double-click or even triple click links when they have been waiting for too long for a UI to respond.</li>
+<li>Users can create links in their browser to directly access specific pages which were not designed to be accessed directly.</li>
+</ul>
+<h1 id="key-patterns-that-can-mitigate-this-problem">Key patterns that can mitigate this problem</h1>
+<ul>
+<li>Chaos Engineering</li>
+<li>Bulkheads</li>
+<li>Embrace Failures</li>
+</ul>
+    </div>
+    <a href="/anti-patterns/users/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-05-28T15:52:39+02:00">May 28, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/rushing-to-solution/" class="link black dim">
+        Rushing to Solution
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Whenever a failure occurs, restoring the service as soon as possible is of course important, but finding the root cause of the issue is also important to make sure we are doing the right actions and to prevent any reoccurrence. If the root cause can’t be found directly, then collecting the necessary elements to understand what has happened and find the root cause is key.
+Collecting the elements does not mean doing the analysis: once the elements are secured, the service can be restored, and then the analysis can begin</p>
+    </div>
+    <a href="/anti-patterns/rushing-to-solution/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-04-12T15:51:36+02:00">April 12, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/big-bang-deployment/" class="link black dim">
+        Big Bang Deployment
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="main-purpose">Main Purpose</h1>
+<p>For bad or good reasons, because we are afraid to apply changes on a product or a solution that is not fully under control, or because we are working in a waterfall mode, we decide to move several months of workload in production all at once. This is what we call a “Big bang” deployment.<br>
+This is the opposite of what we promote most of the time: continuous integration / continuous deployment (CI/CD) because “big bang” deployments embark a lot of risks and almost never go well.<br>
+There is pressure on feature’s delivery, therefore these big releases just tend to get bigger, because people know that the next one will be in a long time. Finding move to production slots becomes a headache because the associated outage is very long. At the end of the day, with so much change at once, the stability often suffers.</p>
+    </div>
+    <a href="/anti-patterns/big-bang-deployment/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-04-12T15:51:36+02:00">April 12, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/cascading-failures/" class="link black dim">
+        Cascading Failures
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="main-purpose">Main Purpose</h1>
+<p>A cascading failure happens when an incident in one part of a given system triggers failures in other parts inside it, or in interconnected systems, with no possibility to stop the propagation. This is causing a domino effect that can have a huge impact.
+One of the most famous patterns in order to avoid a cascading failure is the “Circuit braker”</p>
+    </div>
+    <a href="/anti-patterns/cascading-failures/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-04-12T15:51:36+02:00">April 12, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/sla-inversion/" class="link black dim">
+        SLA Inversion
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="description">DESCRIPTION</h1>
+<p>An IT system has all kind of dependencies which it requires to deliver the service to its end users.
+Typical examples are authentication and storage services but there are also some core low level facilities such as DNS servers and load balancers which are required for the system to function properly.
+All of these dependencies will have an impact on the availability of the system when they go down (and they will!).
+Depending on how the system is coupled with the particular dependency that is failing, the impact may be more or less significant.
+If the system is highly coupled with the dependency then this failure may completely bring the entire system down. You want to avoid your system being highly coupled with dependencies which do not implement enough high availability measures for your requirements.
+Also the blast-radius of a failure in one of your dependencies will be different, for example a printing server failure will probably only impact features that are related to printing whereas an authentication service failure will make your entire application unavailable.</p>
+    </div>
+    <a href="/anti-patterns/sla-inversion/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-04-12T15:51:36+02:00">April 12, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/snowflake/" class="link black dim">
+        Snowflake
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="description">Description</h1>
+<p>When using &ldquo;mutable&rdquo; infrastructure, servers have a long lifespan. They are provisionned once, and during their lifetime they will go through numerous changes.
+The nature of these changes is very diverse, some are very simple modifications of configuration, some are upgrades of some applications services, some are OS kernel upgrades.</p>
+<p>After a while, a server becomes more and more risky to modify, it becomes a real challenge to keep track of all past changes, and it is nearly impossible to explain why a specific setting was modified and when.</p>
+    </div>
+    <a href="/anti-patterns/snowflake/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Anti-patterns</span>
+    
+      <time class="f6 db" datetime="2022-04-12T15:51:36+02:00">April 12, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/anti-patterns/untracked-operations/" class="link black dim">
+        Untracked Operations
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Even if sometimes it seems to be more efficient to modify directly configuration or code directly on the system itself for a long term perspective this is always a bad idea. This applies not only for the code but also for data , configuration files , etc…
+Whatever the reason, if we don’t know what have been done , for which reason , when , by whom at the end it will be impossible to maintaining consistency of the solution.<br>
+More globally we are talking about configuration management , there is tool that can help you to make changes and deployments faster, removing the potential for human error, while making system management auditable, predictable and scalable.</p>
+    </div>
+    <a href="/anti-patterns/untracked-operations/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+		<ul class="pagination pagination-default">
+			<li class="page-item">
+				<a href="/anti-patterns/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+			</li>
+		<li class="page-item">
+			<a href="/anti-patterns/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+		</li>
+			<li class="page-item">
+				<a href="/anti-patterns/" aria-label="Page 1" class="page-link" role="button">1</a>
+			</li>
+			<li class="page-item active">
+				<a aria-current="page" aria-label="Page 2" class="page-link" role="button">2</a>
+			</li>
+		<li class="page-item disabled">
+			<a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+		</li>
+			<li class="page-item disabled">
+				<a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+			</li>
+		</ul></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

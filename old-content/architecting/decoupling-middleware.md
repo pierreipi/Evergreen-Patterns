@@ -19,14 +19,14 @@ interact_with: "sla_inversion, integration_points, big_bang_deployment"
 
 # Examples
 
-![1-Examples](static/images/architecting/1-examples.png)
+![1-Examples](/images/architecting/1-examples.png)
 
 **Tight coupling** between A and B
 if B breaks the A breaks
 - The SLA of A is **directly impacted** by the SLA of B
 - A will only be available when B is
 
-![2-Examples](static/images/architecting/2-examples.png)
+![2-Examples](/images/architecting/2-examples.png)
 
 The solution to this problem may be to break the synchronous link between the 2 components: 
 - Now A can « survive » a restart or failure of B but **only if the exchange is asynchronous**
@@ -43,7 +43,7 @@ Communication with the database is always seen as must be synchronous, but is it
 
 Synchronous is often associated to 'real time': this is **wrong** as near real time can be achieved with async too. These are 2 different concepts
 
-![3-Examples](static/images/architecting/3-examples.png)
+![3-Examples](/images/architecting/3-examples.png)
 
 # At Michelin
 

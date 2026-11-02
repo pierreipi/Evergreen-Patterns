@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Evergreen Patterns | Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Best practices to improve the quality of service of IT systems.">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+    
+      <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Evergreen Patterns (2022)" />
+      <link href="/index.xml" rel="feed" type="application/rss+xml" title="Evergreen Patterns (2022)" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Evergreen Patterns">
+	<meta property="og:description" content="Best practices to improve the quality of service of IT systems.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Evergreen Patterns">
+	<meta itemprop="description" content="Best practices to improve the quality of service of IT systems.">
+	<meta itemprop="datePublished" content="2022-05-29T15:53:06+02:00">
+	<meta itemprop="dateModified" content="2022-05-29T15:53:06+02:00">
+	<meta itemprop="wordCount" content="102">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Evergreen Patterns">
+	<meta name="twitter:description" content="Best practices to improve the quality of service of IT systems.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-home">
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Evergreen Patterns
+        </h1>
+        
+          <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+            Best practices to improve the quality of service of IT systems.
+          </h2>
+        
+      </div>
+    </div>
+  </header>
+
+<main class="pb7" role="main"><article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray">
+    <p>The <strong>Evergreen Operability Patterns</strong> are best practices that we encourage teams to implement in their context in order to improve the quality of service of their IT systems. They are organized in 4 families:</p>
+<ul>
+<li><strong><a href="/architecting/">Architecting Systems</a></strong> gathers all patterns enabling the design of reliable and resilient systems.</li>
+<li><strong><a href="/building/">Building Systems</a></strong> patterns are about coding reliability.</li>
+<li><strong><a href="/releasing/">Releasing Systems</a></strong> patterns help us secure Go Lives and figure out modernization paths.</li>
+<li><strong><a href="/running/">Running Systems</a></strong> is the family regarding day-to-day activities for operating high quality services.</li>
+</ul>
+<p>The <strong><a href="/anti-patterns/">Anti-patterns</a></strong> describe the common traps these patterns help to avoid.</p>
+<p>All the content is made available under the Creative Commons licence.</p>
+
+  </article>
+
+  
+  
+  
+  
+  
+
+  
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+      
+
+      <section class="w-100 mw8">
+        
+        
+          <div class="w-100 mb4 relative">
+            
+
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        
+          <time class="f6 db" datetime="2022-04-18T17:53:35+02:00">April 18, 2022</time>
+        
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/architecting/bulkhead/" class="color-inherit dim link">
+            Bulkhead
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <p>For a truly resilient and self-healing architecture, you need isolation, external monitoring, and autonomous decision-making. Bulkhead pattern is one of the component of a truly resilient architecture, alongside with others like Circuit Breaker.</p>
+<h1 id="how-it-works-">How it works ?</h1>
+<p>Bulkheads consists in partitioning your system in order to protect it against cascading errors. Essentially, a bulkhead assigns limited resources to specific (groups of) clients, applications, operations, client endpoints, and so on.</p>
+<h1 id="when-to-use-it-">When to use it ?</h1>
+<p>Use this pattern to:</p>
+        </div>
+        <a href="/architecting/bulkhead/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="w-100 mb4 relative">
+            
+
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        
+          <time class="f6 db" datetime="2022-04-18T17:53:35+02:00">April 18, 2022</time>
+        
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/architecting/decoupling-middleware/" class="color-inherit dim link">
+            Decoupling Middleware
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <h1 id="main-purpose">Main purpose</h1>
+<ul>
+<li>Tight coupling between distinct components is an operability issue.</li>
+<li>Synchronized communications propagates the SLA between components and cascades failures</li>
+<li>Integration Middlewares can help to break the propagation of the SLA, because they loose this coupling</li>
+<li>Middlewares can protect the left side of the communication from failures of the right side</li>
+<li>This only work when used in an asynchronous exchange</li>
+</ul>
+<h1 id="examples">Examples</h1>
+<p><img src="/images/architecting/1-examples.png" alt="1-Examples"></p>
+<p><strong>Tight coupling</strong> between A and B
+if B breaks the A breaks</p>
+        </div>
+        <a href="/architecting/decoupling-middleware/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="w-100 mb4 relative">
+            
+
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        
+          <time class="f6 db" datetime="2022-04-18T17:53:35+02:00">April 18, 2022</time>
+        
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/architecting/fail-fast/" class="color-inherit dim link">
+            Fail Fast
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <h1 id="principle">Principle</h1>
+<p><strong>Before starting a task ensure it has a chance to complete.</strong>
+<em>A chef won’t start to cook before he ensured he has all the ingredients</em></p>
+<p><strong>Fail-fast systems are designed to stop operation rather than attempting to continue a possibly flawed process.</strong>
+<em>Eases debugging, improves visibility and understanding of root causes</em></p>
+<p><strong>Implemented in circuit breakers</strong>
+<em>When a circuit status in « Open »: solicitations instantly fail</em></p>
+<h1 id="examples">Examples</h1>
+<ul>
+<li><strong>Input validation</strong>
+<ul>
+<li>We validate user input before we submit to a server</li>
+<li>If required data is missing, we do not try to execute the process</li>
+<li>Applicable to any kind of validation (uploaded data files, logistic network description, …)</li>
+</ul>
+</li>
+<li><strong>Especially before long running operations</strong>
+<ul>
+<li>Do not generate a big data file before checking that the destination is online for instance</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+        </div>
+        <a href="/architecting/fail-fast/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="w-100 mb4 relative">
+            
+
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        
+          <time class="f6 db" datetime="2022-04-18T17:53:35+02:00">April 18, 2022</time>
+        
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/architecting/handshaking--backpressure/" class="color-inherit dim link">
+            Handshaking &amp; Backpressure
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <h1 id="handshaking">Handshaking</h1>
+<ul>
+<li>Ensure that the third party can <strong>accept our sollicitation before we do it</strong>
+<ul>
+<li>Be proactive</li>
+</ul>
+</li>
+<li>Requires <strong>automated Health checks</strong>
+<ul>
+<li>How can we inquire about the health of our target system ?</li>
+</ul>
+</li>
+<li>Enabler for proper <strong>throttling</strong> and simple <strong>back pressure mechanism</strong></li>
+</ul>
+<h1 id="throttling">Throttling</h1>
+<ul>
+<li>In our context, Throttling refers to the action of <strong>deliberately limiting an activity</strong> in order to <strong>remove the burden</strong> on a third party system</li>
+<li>In order to throttle, we need to have a system whose level of activity can be <strong>dynamically controlled</strong></li>
+<li>In modern programming languages, we are using dynamic thread pools
+<ul>
+<li>They start with an initial size</li>
+<li>This size can be <strong>dynamically changed</strong> during runtime</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/architecting/HB-throttling.png" alt="HB-throttling.png"></p>
+        </div>
+        <a href="/architecting/handshaking--backpressure/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="w-100 mb4 relative">
+            
+
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        
+          <time class="f6 db" datetime="2022-04-18T17:53:35+02:00">April 18, 2022</time>
+        
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/architecting/stateless/" class="color-inherit dim link">
+            Stateless
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <p>A <strong>stateless system</strong> gets as input parameters <strong>all necessary data for its execution</strong></p>
+<p>These systems are simple and have interesting benefits:</p>
+<ul>
+<li>No need to maintain any user session</li>
+<li>No need for any kind of sequencing of invocations</li>
+</ul>
+        </div>
+        <a href="/architecting/stateless/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="w-100 mb4 relative">
+            
+
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        
+          <time class="f6 db" datetime="2022-04-18T17:53:35+02:00">April 18, 2022</time>
+        
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/architecting/steady-state/" class="color-inherit dim link">
+            Steady State
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <p>A software is designed to work in defined « normal » conditions.</p>
+<p>For example:</p>
+<ul>
+<li>There are some free space in the file system</li>
+<li>Database can extend</li>
+<li>The volume of data inside the DB is in predefined limits</li>
+<li>…</li>
+</ul>
+<p>Every time the software consumes resources that are associated with these conditions, it has an automated way to release these resources.</p>
+<p><strong>Automated</strong> is the most important word here</p>
+<h1 id="how-it-works-">How it works ?</h1>
+<ul>
+<li>Every time a resource is consumed, there is an automated way to release this resource
+<ul>
+<li>A system should be able to run indefinitely <strong>without any human intervention</strong></li>
+</ul>
+</li>
+<li>When a purge of data is required after 3 years of production people will not remember to do it, and if they do it might be unclear on how to do it
+<ul>
+<li>The system will be slower and slower</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/architecting/SteadyState-works.png" alt="SteadyState-works"></p>
+        </div>
+        <a href="/architecting/steady-state/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+      </section>
+
+      
+        <section class="w-100">
+          <h1 class="f3">More</h1>
+          
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/architecting/using-timeouts/" class="link black dim">
+                Using Timeouts
+              </a>
+            </h2>
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/releasing/error-budget/" class="link black dim">
+                Error Budget
+              </a>
+            </h2>
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/running/capacity-planning/" class="link black dim">
+                Capacity Planning
+              </a>
+            </h2>
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/releasing/continuous-deployment/" class="link black dim">
+                Continuous Deployment
+              </a>
+            </h2>
+          
+        </section>
+      
+
+    </div>
+  
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

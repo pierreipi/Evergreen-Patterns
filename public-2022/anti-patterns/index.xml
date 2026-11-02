@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Anti-patterns on Evergreen Patterns (2022)</title>
+		<link>http://localhost:1313/anti-patterns/</link>
+		<description>Recent content in Anti-patterns on Evergreen Patterns (2022)</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 29 May 2022 15:53:06 +0200</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/anti-patterns/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Everything Works All The Time</title>
+				<link>http://localhost:1313/anti-patterns/everything-works-all-the-time/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/everything-works-all-the-time/</guid>
+				<description>&lt;p&gt;Systems are designed and built considering that everything will happen as planned and are therefore only considering the “happy path”:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;When they are waiting for files from other applications: they consider all those files will be received, and that they will all be on time and with the right format with no data issue&lt;/li&gt;&#xA;&lt;li&gt;When they are relying on external webservices, they expect them to be always available&lt;/li&gt;&#xA;&lt;li&gt;When they are sending data to a third-party system, they do not check the response to make sure everything is ok&lt;/li&gt;&#xA;&lt;li&gt;There is no (or not enough) troubleshooting information in the logs&lt;/li&gt;&#xA;&lt;li&gt;There is no timeout to interrupt abnormally long transactions&lt;/li&gt;&#xA;&lt;li&gt;Etc …&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;When designing and building a system, it is very important to imagine what could go wrong (both internally and externally) and how to handle it or at least how to minimize the impact and help troubleshoot. In some cases, there may be a degraded mode providing only the most critical functionalities.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Hero Problem Solving</title>
+				<link>http://localhost:1313/anti-patterns/hero-problem-solving/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/hero-problem-solving/</guid>
+				<description>&lt;p&gt;It is very convenient to have someone in the team who knows the system very well and is able to rapidly find the issue and solve it. When major incidents happen, they get involved very quickly to fix the issue, and they do. It is however very likely that no RCA will be performed to learn, capitalize and share the knowledge.&#xA;Of course, having people who know the system very well is a good thing, but it is important that the team does not rely on them to always fix issues, thus creating a dependency on them.&#xA;What will happen when those “heroes” will be on vacation or when they will leave the team?&#xA;Therefore, it is important to keep the documentation up to date and to coach team members so everyone can solve most issues and will not rely on a few members. Of course, at the beginning they may take a bit longer to fix an issue, but over time they will improve and solving issues will not depend on a few heroes. This will also highlight any loophole in the documentation that needs to be fixed.&#xA;Automating some tasks can also be very helpful: scripts that fix specific issues or do some checks and can be launched by many people will also reduce dependency on experts.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Integration Points</title>
+				<link>http://localhost:1313/anti-patterns/integration-points/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/integration-points/</guid>
+				<description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;&#xA;&lt;p&gt;Connections between systems always bring challenges and more complexity in the day to day operations. Systems are connected in order to share data or services and these can be critical for the reliability or even just the availability of your application.&lt;/p&gt;&#xA;&lt;p&gt;Integration also often brings an additional dependency in the architecture : the middleware which is responsible for implementing the actual integration, direct point to point integration between 2 applications is often seen as an integration anti-pattern and is avoided, API managers are used even in simple request/reply scenarios, as they come with a lot of added values for operations (monitoring, security, throlling, &amp;hellip;).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Normal Errors</title>
+				<link>http://localhost:1313/anti-patterns/normal-errors/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/normal-errors/</guid>
+				<description>&lt;p&gt;Observability is a key feature of a system as it allows to get an overview of the system status and detect if anything is going wrong inside the system. Reporting errors allows people operating the system to react as soon as possible thus avoiding the issue and its impact to grow.&#xA;If a system is generating too many errors, likely not filtered nor sorted by severity, the team will be overloaded not knowing which ones are important to be dealt with.  The team will eventually end up considering them as normal errors, ignoring them. This will lead to hide and ignore serious errors which should be dealt with swiftly deteriorating quality of service.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Overkill Response</title>
+				<link>http://localhost:1313/anti-patterns/overkill-response/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/overkill-response/</guid>
+				<description>&lt;p&gt;When an issue occurs, understanding the impact and defining the right action(s) to fix it, with no or minimum side effect, is key. The set of measures should be enough to fix the issue, but not too much to avoid any unnecessary impacts. Before doing something that will have a significant impact, take a moment to see if another action is possible with a more limited impact. It is possible to have a set of gradual measures that can be applied one after another until the issue is fixed. Not applying these “just right” practices is an “overkill response” impacting Quality of Service and it may also prevent the ability to diagnose root causes.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Reactive Operations</title>
+				<link>http://localhost:1313/anti-patterns/reactive-operations/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/reactive-operations/</guid>
+				<description>&lt;p&gt;Naturally and historically, the actions of the operations support teams are triggered by an incident opened by a user. This implies that users are already in difficulty in their daily work.&lt;/p&gt;&#xA;&lt;p&gt;Like firefighting: the team is like firemen who are responding to a fire. They are only called in when it has started and has begun to grow in size by the time they intervene. The observation is that there is always damage (more or less impacting).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Snowball Effect</title>
+				<link>http://localhost:1313/anti-patterns/snowball-effect/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/snowball-effect/</guid>
+				<description>&lt;p&gt;Simple issues, if not managed quickly, can generate very complex situations that can be very hard to resolve.&#xA;Systems must be designed to handle issues and making sure small issues are not going to generate bigger issues over time. Detecting issues and triggering self-healing or raising alerts is also a key feature of systems to avoid unmanageable situations.&lt;/p&gt;&#xA;&lt;p&gt;Example: a filesystem is full, which will cause errors on the storage of an application, which will cause incoherent state between the filesystem and the status in the database and erroneous data to be sent to other applications, which over time will be more and more complex to solve.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Toil Routine</title>
+				<link>http://localhost:1313/anti-patterns/toil-routine/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/toil-routine/</guid>
+				<description>&lt;p&gt;It is common that, over time, manual actions are taken to keep systems up and running (purges, checks, stop/starts, daily incidents, &amp;hellip;.). Without any deliberate wish, all these routines settle and take more and more time on the team&amp;rsquo;s workload. But habit makes them take hold.&lt;/p&gt;&#xA;&lt;p&gt;It is important to regularly take a step back to identify these no added value activities. The intervention of an external person acting as a sparring partner may help in the process. For each of them, an appropriate pattern will be found. Starting with the toil automation: time is precious.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Unmastered Systems</title>
+				<link>http://localhost:1313/anti-patterns/unmastered-systems/</link>
+				<pubDate>Sun, 29 May 2022 15:53:06 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/unmastered-systems/</guid>
+				<description>&lt;p&gt;An unmastered system is a system on which nobody have a global view of all the elements that compose this system and how they interact with other systems.&lt;br&gt;&#xA;With this lack of information, any evolutions are complex because it is difficult to know what will be the impact of these changes.&lt;br&gt;&#xA;It will be also complicate or impossible to operate. This can arrive on old system or may be due to another anti-pattern : untracked operation&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Unbalanced Capacities</title>
+				<link>http://localhost:1313/anti-patterns/unbalanced-capacities/</link>
+				<pubDate>Sun, 29 May 2022 15:52:26 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/unbalanced-capacities/</guid>
+				<description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;&#xA;&lt;p&gt;Your system consumes resources in order to execute the workload it is assigned. If these are not enough resources available to satisfy the demand, it is probable that the system will start becoming slower and slower, and this will introduce additional problems such as timeouts and blocked threads.&lt;/p&gt;&#xA;&lt;h1 id=&#34;what-can-be-done&#34;&gt;What can be done&lt;/h1&gt;&#xA;&lt;p&gt;Monitoring the Golden Signals (Saturation, Latency, Errors, Traffic) is a mandatory activity for any system. This will enable a better understanding of the usage and help in identifying trends and seasonality in usage patterns. Saturation is the key signal to understand how full the current infrastructure is and how this consumption evolves over time.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Users</title>
+				<link>http://localhost:1313/anti-patterns/users/</link>
+				<pubDate>Sun, 29 May 2022 15:32:37 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/users/</guid>
+				<description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;&#xA;&lt;p&gt;Users will use the system you build and design in ways you have never envisionned. It can have several reasons. Maybe they were not trained adequatly or maybe they are just very creative. Classical testing methods can not catch everything before the first go-live of your system.&lt;/p&gt;&#xA;&lt;h1 id=&#34;some-typical-examples&#34;&gt;Some typical examples&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Administrators of the application may have access to configuration features that can be dangerous if not understood properly. They can easily break the complete system by entering wrong settings.&lt;/li&gt;&#xA;&lt;li&gt;Users will sometimes double-click or even triple click links when they have been waiting for too long for a UI to respond.&lt;/li&gt;&#xA;&lt;li&gt;Users can create links in their browser to directly access specific pages which were not designed to be accessed directly.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;key-patterns-that-can-mitigate-this-problem&#34;&gt;Key patterns that can mitigate this problem&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Chaos Engineering&lt;/li&gt;&#xA;&lt;li&gt;Bulkheads&lt;/li&gt;&#xA;&lt;li&gt;Embrace Failures&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Rushing to Solution</title>
+				<link>http://localhost:1313/anti-patterns/rushing-to-solution/</link>
+				<pubDate>Sat, 28 May 2022 15:52:39 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/rushing-to-solution/</guid>
+				<description>&lt;p&gt;Whenever a failure occurs, restoring the service as soon as possible is of course important, but finding the root cause of the issue is also important to make sure we are doing the right actions and to prevent any reoccurrence. If the root cause can’t be found directly, then collecting the necessary elements to understand what has happened and find the root cause is key.&#xA;Collecting the elements does not mean doing the analysis: once the elements are secured, the service can be restored, and then the analysis can begin&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Big Bang Deployment</title>
+				<link>http://localhost:1313/anti-patterns/big-bang-deployment/</link>
+				<pubDate>Tue, 12 Apr 2022 15:51:36 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/big-bang-deployment/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;For bad or good reasons, because we are afraid to apply changes on a product or a solution that is not fully under control, or because we are working in a waterfall mode, we decide to move several months of workload in production all at once. This is what we call a “Big bang” deployment.&lt;br&gt;&#xA;This is the opposite of what we promote most of the time: continuous integration / continuous deployment (CI/CD) because “big bang” deployments embark a lot of risks and almost never go well.&lt;br&gt;&#xA;There is pressure on feature’s delivery, therefore these big releases just tend to get bigger, because people know that the next one will be in a long time. Finding move to production slots becomes a headache because the associated outage is very long. At the end of the day, with so much change at once, the stability often suffers.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Cascading Failures</title>
+				<link>http://localhost:1313/anti-patterns/cascading-failures/</link>
+				<pubDate>Tue, 12 Apr 2022 15:51:36 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/cascading-failures/</guid>
+				<description>&lt;h1 id=&#34;main-purpose&#34;&gt;Main Purpose&lt;/h1&gt;&#xA;&lt;p&gt;A cascading failure happens when an incident in one part of a given system triggers failures in other parts inside it, or in interconnected systems, with no possibility to stop the propagation. This is causing a domino effect that can have a huge impact.&#xA;One of the most famous patterns in order to avoid a cascading failure is the “Circuit braker”&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>SLA Inversion</title>
+				<link>http://localhost:1313/anti-patterns/sla-inversion/</link>
+				<pubDate>Tue, 12 Apr 2022 15:51:36 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/sla-inversion/</guid>
+				<description>&lt;h1 id=&#34;description&#34;&gt;DESCRIPTION&lt;/h1&gt;&#xA;&lt;p&gt;An IT system has all kind of dependencies which it requires to deliver the service to its end users.&#xA;Typical examples are authentication and storage services but there are also some core low level facilities such as DNS servers and load balancers which are required for the system to function properly.&#xA;All of these dependencies will have an impact on the availability of the system when they go down (and they will!).&#xA;Depending on how the system is coupled with the particular dependency that is failing, the impact may be more or less significant.&#xA;If the system is highly coupled with the dependency then this failure may completely bring the entire system down. You want to avoid your system being highly coupled with dependencies which do not implement enough high availability measures for your requirements.&#xA;Also the blast-radius of a failure in one of your dependencies will be different, for example a printing server failure will probably only impact features that are related to printing whereas an authentication service failure will make your entire application unavailable.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Snowflake</title>
+				<link>http://localhost:1313/anti-patterns/snowflake/</link>
+				<pubDate>Tue, 12 Apr 2022 15:51:36 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/snowflake/</guid>
+				<description>&lt;h1 id=&#34;description&#34;&gt;Description&lt;/h1&gt;&#xA;&lt;p&gt;When using &amp;ldquo;mutable&amp;rdquo; infrastructure, servers have a long lifespan. They are provisionned once, and during their lifetime they will go through numerous changes.&#xA;The nature of these changes is very diverse, some are very simple modifications of configuration, some are upgrades of some applications services, some are OS kernel upgrades.&lt;/p&gt;&#xA;&lt;p&gt;After a while, a server becomes more and more risky to modify, it becomes a real challenge to keep track of all past changes, and it is nearly impossible to explain why a specific setting was modified and when.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Untracked Operations</title>
+				<link>http://localhost:1313/anti-patterns/untracked-operations/</link>
+				<pubDate>Tue, 12 Apr 2022 15:51:36 +0200</pubDate>
+				<guid>http://localhost:1313/anti-patterns/untracked-operations/</guid>
+				<description>&lt;p&gt;Even if sometimes it seems to be more efficient to modify directly configuration or code directly on the system itself for a long term perspective this is always a bad idea. This applies not only for the code but also for data , configuration files , etc…&#xA;Whatever the reason, if we don’t know what have been done , for which reason , when , by whom at the end it will be impossible to maintaining consistency of the solution.&lt;br&gt;&#xA;More globally we are talking about configuration management , there is tool that can help you to make changes and deployments faster, removing the potential for human error, while making system management auditable, predictable and scalable.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

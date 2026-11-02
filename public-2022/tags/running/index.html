@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Operability patterns and anti-patterns to improve the quality of service of IT systems.">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/running/index.xml" rel="alternate" type="application/rss+xml" title="Evergreen Patterns (2022)" />
+      <link href="/tags/running/index.xml" rel="feed" type="application/rss+xml" title="Evergreen Patterns (2022)" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/running/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/running/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Running">
+	<meta property="og:description" content="Operability patterns and anti-patterns to improve the quality of service of IT systems.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Running">
+	<meta itemprop="description" content="Operability patterns and anti-patterns to improve the quality of service of IT systems.">
+	<meta itemprop="datePublished" content="2022-04-14T08:48:43+02:00">
+	<meta itemprop="dateModified" content="2022-04-14T08:48:43+02:00">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Running">
+	<meta name="twitter:description" content="Operability patterns and anti-patterns to improve the quality of service of IT systems.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-term">
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Running
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+<main class="pb7" role="main">
+  
+  
+
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Running Systems</span>
+    
+      <time class="f6 db" datetime="2022-04-14T08:48:43+02:00">April 14, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/running/capacity-planning/" class="link black dim">
+        Capacity Planning
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="definition">Definition</h1>
+<p>From Wikipedia, &ldquo;Capacity planning is the process of determining the production capacity needed by an organization to meet changing demands for its products.&rdquo;</p>
+<p>In the IT world, it is as a synonym for capacity management which is the term used by ITIL. IT capacity planning involves estimating the storage, computer hardware, software and connection infrastructure resources required over some future period of time.</p>
+<p>Capacity planning is very important for IT systems, because you wan&rsquo;t to avoid facing capacity issues that will directly translate to outages. You want to monitor the resource usage of your systems in order to understand what are the trends.</p>
+    </div>
+    <a href="/running/capacity-planning/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Running Systems</span>
+    
+      <time class="f6 db" datetime="2022-04-12T16:12:21+02:00">April 12, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/running/continuous-knowledge/" class="link black dim">
+        Continuous Knowledge
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="main-purpose">Main Purpose</h1>
+<p>In order to operate our systems in an efficient way, it is crucial to capitalize and share knowledge continuously.</p>
+<p>A clear and shared documentation allows more people to be able to troubleshoot an issue and to do it faster without having to rely on experts.</p>
+<p>It is important to keep updating the documentation in time by adding or modifying content related to new or updated features, but also by removing content that is not relevant anymore or by documenting known issues and their workarounds (as long as they exist).</p>
+    </div>
+    <a href="/running/continuous-knowledge/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Running Systems</span>
+    
+      <time class="f6 db" datetime="2022-04-12T16:12:21+02:00">April 12, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/running/continuous-operability/" class="link black dim">
+        Continuous Operability
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="main-purpose">MAIN PURPOSE</h1>
+<p>Like every pattern it is key. But it has the particularity of ensuring that the approach and effort remains consistent &amp; constant over time (duration being the key point)</p>
+<p>Systems are living. They evolve with the changes implemented, the users usage changes, the businesses evolve&hellip;.</p>
+<p>It is a continuous loop that needs to be put in place</p>
+<h1 id="goal">GOAL</h1>
+<p>The effort of operability is a continuous work (not only during the building of a solution). The business evolves, the usage evolves, the systems evolve, the data evolve : all these changes require ensuring the right level of satisfaction.</p>
+    </div>
+    <a href="/running/continuous-operability/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Running Systems</span>
+    
+      <time class="f6 db" datetime="2022-04-12T16:12:08+02:00">April 12, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/running/embrace-failures/" class="link black dim">
+        Embrace Failures
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="main-purpose">Main Purpose</h1>
+<p>The purpose of “Embrace Failure” is to take the opportunity of failures to understand, learn and improve.</p>
+<p>This can be done at every level: technical, process, organization.</p>
+<h1 id="when-to-use-it">When to use it?</h1>
+<p>Embrace Failure is a mindset and can be used in many areas and activities.</p>
+<p>An obvious area is the operations: Problem Management is an example of “Embrace Failure” which consists in analyzing incidents clusters or critical incidents in order to find the root cause and fix it.</p>
+    </div>
+    <a href="/running/embrace-failures/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          
+<div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Running Systems</span>
+    
+      <time class="f6 db" datetime="2022-04-12T16:11:58+02:00">April 12, 2022</time>
+    
+    <h1 class="f3 near-black">
+      <a href="/running/event-management/" class="link black dim">
+        Event Management
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h1 id="main-purpose">MAIN PURPOSE</h1>
+<p>In order to always anticipate and solve situations before they disturb the users, event management is essential.</p>
+<p>To be clear : an event is simply a change to the state of a service, a threshold is breached, or configuration item (CI) that is significant to its management.</p>
+<h1 id="goal">GOAL</h1>
+<p>The objective is simple: to have the information as soon as possible to provide a solution as quickly as possible. It also avoids mobilizing teams to scan the monitoring screens.</p>
+    </div>
+    <a href="/running/event-management/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    </article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

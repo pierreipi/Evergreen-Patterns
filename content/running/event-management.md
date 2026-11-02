@@ -15,7 +15,6 @@ tags:
 description: "My systems send notifications as soon as possible to deal with situations."
 ---
 
-![My systems send notifications as soon as possible to deal with situations.](/images/event-management.webp)
 
 # Description
 

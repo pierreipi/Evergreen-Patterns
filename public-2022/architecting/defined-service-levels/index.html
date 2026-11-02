@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Defined Service Levels | Evergreen Patterns (2022)</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Business has defined expectations of my system&#39;s availability &amp; performance">
+    <meta name="generator" content="Hugo 0.165.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/architecting/defined-service-levels/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/architecting/defined-service-levels/">
+	<meta property="og:site_name" content="Evergreen Patterns (2022)">
+	<meta property="og:title" content="Defined Service Levels">
+	<meta property="og:description" content="Business has defined expectations of my system&#39;s availability &amp; performance">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="architecting">
+		<meta property="article:published_time" content="2022-04-12T15:52:02+02:00">
+		<meta property="article:modified_time" content="2022-04-12T15:52:02+02:00">
+		<meta property="article:tag" content="Architecting">
+
+	<meta itemprop="name" content="Defined Service Levels">
+	<meta itemprop="description" content="Business has defined expectations of my system&#39;s availability &amp; performance">
+	<meta itemprop="datePublished" content="2022-04-12T15:52:02+02:00">
+	<meta itemprop="dateModified" content="2022-04-12T15:52:02+02:00">
+	<meta itemprop="wordCount" content="488">
+	<meta itemprop="keywords" content="Architecting">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Defined Service Levels">
+	<meta name="twitter:description" content="Business has defined expectations of my system&#39;s availability &amp; performance">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-defined-service-levels">
+   
+  
+
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Evergreen Patterns (2022)
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/architecting/" title="Architecting page">
+              Architecting
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/building/" title="Building page">
+              Building
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/releasing/" title="Releasing page">
+              Releasing
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/running/" title="Running page">
+              Running
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/anti-patterns/" title="Anti-patterns page">
+              Anti-patterns
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+
+  <article class="page-defined-service-levels flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    <a class="link dim" href="http://localhost:1313/architecting/">Architecting Systems</a>
+  </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Defined Service Levels</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-04-12T15:52:02+02:00">April 12, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="main-purpose">MAIN PURPOSE</h1>
+<p>When trying to define whether your systems offer a good quality of service, it is important to define what “Good” means in your own specific context. Observable Service Levels should be defined and measured so that you can know very confidently at any time if your systems are delivering a good experience to their businesses. Defining which are the good service levels is not an easy task and identifying which metrics must be captured to measure them must be done early enough.</p>
+<p>Identifying Service Levels Indicators (SLI) and setting Service Level Objectives (SLO) for them is also a foundation for SRE (System Reliability Engineering) practices, and even if you are not deploying the complete SRE practices on your product, we recommend that you still define and measure SLIs and SLOs.</p>
+<p>The most popular SLIs include availability, request latency, system throughput and Error rate.</p>
+<p>SLIs and SLOs are a foundation for a error budgeting, a best practice balancing development and operations objectives.</p>
+<h1 id="what-to-do">WHAT TO DO</h1>
+<p>SLO refers to a service-level objective. These objectives are defined as means to determine whether a system is operating at a level acceptable for the business. All personnel within a development and operations organizations understand the fact that, when a system is unavailable and unreliable, it is unable to perform its function to the customer with any level of consistency.</p>
+<p>While it would be nice if services were able to operate perfectly, 100% of the time, it is not possible. Therefore, SLOs are a benchmark for determining a target level of system reliability. This includes measurable objectives such as simple availability (e.g., the system must be accessible 99.9% of the time) or system performance (e.g., 99.5% of requests must complete within 500ms). Together, these objectives combine to provide an accurate depiction of system quality for which the organization can stand by.</p>
+<p>SLOs are hard to monitor without indicators that provide the backing metrics and associated insights for measuring these objectives. These measurements are known as SLIs or “service-level indicators”. By tracking and evaluating SLIs (error rate, request latency, etc.), you can effectively monitor service availability, quality, and performance to ensure that the system is living up to the level of reliability promised by the SLOs.</p>
+<h1 id="best-practices">BEST PRACTICES</h1>
+<ul>
+<li>
+<p>Ensure both the build team, the support and the business understand what the objectives are and agree with them</p>
+</li>
+<li>
+<p>Involve SRE expertise early on to help you identify these requirements</p>
+</li>
+<li>
+<p>Set realistic objectives and iterate regularly to refine them</p>
+</li>
+<li>
+<p>Define what are the consequences of not reaching the objectives, should you reprioritize implementation of stabilization features from your backlog in this case? Should you organize post-mortems?</p>
+</li>
+</ul>
+<h1 id="examples">EXAMPLES</h1>
+<p><img src="/images/architecting/splunk.png" alt="1"></p>
+<p><em>A2P: comparing the performance of the promise web service to a SLO (95% of all invocations should be done in less than 500ms)</em></p>
+<p><img src="/images/architecting/splunk2.png" alt="2"></p>
+<p><em>A2P: 15 days of SLOs</em></p>
+<h1 id="external-resources">EXTERNAL RESOURCES</h1>
+<p><a href="https://cloud.google.com/blog/products/management-tools/practical-guide-to-setting-slos">Learn how to set SLOs &ndash; SRE tips | Google Cloud Blog</a></p>
+<p><a href="https://sre.google/workbook/implementing-slos/">Google - Site Reliability Engineering (sre.google) </a></p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/categories/architecting/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Architecting</a>
+   </li>
+  
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/architecting/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Architecting</a>
+   </li>
+  
+</ul>
+
+      
+    </div><aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/architecting/continuous-architecture/">Continuous Architecture</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/architecting/circuit-breaker/">Circuit Breaker</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Evergreen Patterns (2022) 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
